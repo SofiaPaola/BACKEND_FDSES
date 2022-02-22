@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name= "ciudades_1")
+@Table(name= "ciudades")
 public class Ciudad implements Serializable {
 
 	@Id

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "climas_1")
+@Table(name = "climas")
 public class Clima implements Serializable{
 	
 	@Id

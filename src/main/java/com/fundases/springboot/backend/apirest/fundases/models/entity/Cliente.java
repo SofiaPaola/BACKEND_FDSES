@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="clientes_1")
+@Table(name="clientes")
 public class Cliente implements Serializable {
 
 	@Id

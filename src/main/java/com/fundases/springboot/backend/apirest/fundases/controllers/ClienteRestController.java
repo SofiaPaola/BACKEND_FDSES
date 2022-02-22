@@ -6,11 +6,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IClienteService;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -33,6 +39,12 @@ public class ClienteRestController {
 	@GetMapping("/clientes")
 	public List<Cliente> index() {
 		return clienteService.findAll();
+	}
+	
+	@GetMapping("/clientes/page/{page}")
+	public Page<Cliente> index(@PathVariable Integer page) {
+		Pageable pageable = PageRequest.of(page, 4);
+		return clienteService.findAll(pageable);
 	}
 	
 	@GetMapping("/clientes/{id}")
@@ -109,7 +121,7 @@ public class ClienteRestController {
 		
 		if (clienteActual == null) {
 			response.put("mensaje", "Error: no se pudo editar, el cliente ID: "
-					.concat(id.toString().concat(" no existe en la base de datos!")));
+					.concat(id.toString().concat(" No existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
@@ -141,6 +153,34 @@ public class ClienteRestController {
 		response.put("cliente", clienteUpdated);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+	}
+	
+	@DeleteMapping("/clientes/{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id) {
+		
+		Map<String, Object> response = new HashMap<>();
+		
+		try {
+		    clienteService.delete(id);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al eliminar el cliente de la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		response.put("mensaje", "El cliente eliminado con éxito!");
+		
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/clientes/ciudades")
+	public List<Ciudad> listarCiudades(){
+		return clienteService.findAllCiudades();
+	}
+	
+	@GetMapping("/clientes/tipo_documento")
+	public List<TipoDocumento> listarTiposDocumentos(){
+		return clienteService.findAllTiposDocumentos();
 	}
 
 }

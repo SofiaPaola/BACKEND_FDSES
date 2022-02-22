@@ -3,11 +3,15 @@ package com.fundases.springboot.backend.apirest.fundases.models.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IClienteDao;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -19,6 +23,12 @@ public class ClienteServiceImpl implements IClienteService {
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {
 		return (List<Cliente>) clienteDao.findAll();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Page<Cliente> findAll(Pageable pageable) {
+		return clienteDao.findAll(pageable);
 	}
 	
 	@Override
@@ -37,6 +47,18 @@ public class ClienteServiceImpl implements IClienteService {
 	@Transactional
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Ciudad> findAllCiudades() {
+		return clienteDao.findAllCiudades();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<TipoDocumento> findAllTiposDocumentos() {
+		return clienteDao.findAllTiposDocumentos();
 	}
 	
 }
