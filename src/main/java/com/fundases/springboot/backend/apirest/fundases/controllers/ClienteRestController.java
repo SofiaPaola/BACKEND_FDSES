@@ -9,7 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +27,7 @@ import com.fundases.springboot.backend.apirest.fundases.models.services.ICliente
 @RequestMapping("/api")
 public class ClienteRestController {
 	
-	//@Autowired
+	@Autowired
 	private IClienteService clienteService;
 	
 	@GetMapping("/clientes")
@@ -117,10 +117,18 @@ public class ClienteRestController {
 
 			clienteActual.setDocumento(cliente.getDocumento());
 			clienteActual.setNombre(cliente.getNombre());
-			clienteActual.setEmail(cliente.getEmail());
+			clienteActual.setContacto(cliente.getContacto());
 			clienteActual.setCargo(cliente.getCargo());
+			clienteActual.setDireccion(cliente.getDireccion());
+			clienteActual.setTelefono(cliente.getTelefono());
+			clienteActual.setTelefono1(cliente.getTelefono1());
 			clienteActual.setCelular(cliente.getCelular());
-
+			clienteActual.setEmail(cliente.getEmail());
+			clienteActual.setFecha_ingreso(cliente.getFecha_ingreso());
+			clienteActual.setCiudad(cliente.getCiudad());
+			clienteActual.setTipo_documento(cliente.getTipo_documento());
+			clienteActual.setObservaciones(cliente.getObservaciones()); 
+			
 			clienteUpdated = clienteService.save(clienteActual);
 
 		} catch (DataAccessException e) {

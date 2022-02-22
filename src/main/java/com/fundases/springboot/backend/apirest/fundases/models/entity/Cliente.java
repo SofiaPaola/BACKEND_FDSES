@@ -5,13 +5,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 //import javax.validation.constraints.NotEmpty;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="clientes_1")
@@ -34,7 +39,7 @@ public class Cliente implements Serializable {
 	
 	private String telefono;
 	
-	private String telefono2;
+	private String telefono1;
 	
 	private String celular;
 	
@@ -44,6 +49,15 @@ public class Cliente implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_ingreso;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "id_ciudad")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Ciudad ciudad;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "id_tipo_documento")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private TipoDocumento tipo_documento;
 	
 	private String observaciones;
 
@@ -103,12 +117,12 @@ public class Cliente implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public String getTelefono2() {
-		return telefono2;
+	public String getTelefono1() {
+		return telefono1;
 	}
 
-	public void setTelefono2(String telefono2) {
-		this.telefono2 = telefono2;
+	public void setTelefono1(String telefono1) {
+		this.telefono1 = telefono1;
 	}
 
 	public String getCelular() {
@@ -133,6 +147,22 @@ public class Cliente implements Serializable {
 
 	public void setFecha_ingreso(Date fecha_ingreso) {
 		this.fecha_ingreso = fecha_ingreso;
+	}
+
+	public Ciudad getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(Ciudad ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public TipoDocumento getTipo_documento() {
+		return tipo_documento;
+	}
+
+	public void setTipo_documento(TipoDocumento tipo_documento) {
+		this.tipo_documento = tipo_documento;
 	}
 
 	public String getObservaciones() {
