@@ -20,17 +20,23 @@ public class ClienteServieImpl implements IClienteService {
 	public List<Cliente> findAll() {
 		return (List<Cliente>) clienteDao.findAll();
 	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Cliente findById(Long id) {
+		return clienteDao.findById(id).orElse(null);
+	}
 
 	@Override
+	@Transactional
 	public Cliente save(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
+		return clienteDao.save(cliente);
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		clienteDao.deleteById(id);
 	}
-
+	
 }
