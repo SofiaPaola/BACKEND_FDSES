@@ -25,32 +25,32 @@ public class Cliente implements Serializable {
 	@Column(name = "id_cliente")
 	private Long id;
 
-	@NotEmpty(message = "El documento no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	@Column(nullable=false, unique=true)
 	private String documento;
 
-	@NotEmpty(message = "El nombre no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	@Size(min=5, max=100)
 	private String nombre;
 
-	@NotEmpty(message = "El contacto no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	private String contacto;
 
-	@NotEmpty(message = "El cargo no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	private String cargo;
 
-	@NotEmpty(message = "El direccion no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	private String direccion;
 
-	@NotEmpty(message = "El telefono no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	private String telefono;
 
 	private String telefono1;
 	
-	@NotEmpty(message = "El celular no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	private String celular;
 
-	@NotEmpty(message = "El email no puede ser vacio")
+	@NotEmpty(message = "no puede ser vacio")
 	@Email
 	private String email;
 
