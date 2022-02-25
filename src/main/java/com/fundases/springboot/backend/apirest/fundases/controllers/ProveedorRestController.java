@@ -79,7 +79,7 @@ public class ProveedorRestController {
 	};
 
 	@PostMapping("/proveedores")
-	public ResponseEntity<?> create(@Valid @RequestBody Proveedor cliente, BindingResult result) {
+	public ResponseEntity<?> create(@Valid @RequestBody Proveedor proveedor, BindingResult result) {
 
 		Proveedor proveedorNew = null;
 		Map<String, Object> response = new HashMap<>();
@@ -103,7 +103,7 @@ public class ProveedorRestController {
 		}
 
 		try {
-			proveedorNew = proveedorService.save(cliente);
+			proveedorNew = proveedorService.save(proveedor);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
