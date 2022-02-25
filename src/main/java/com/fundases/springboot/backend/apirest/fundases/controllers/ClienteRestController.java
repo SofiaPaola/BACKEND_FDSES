@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IClienteService;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -177,6 +178,11 @@ public class ClienteRestController {
 	@GetMapping("/clientes/ciudades")
 	public List<Ciudad> listarCiudades() {
 		return clienteService.findAllCiudad();
+	}
+	
+	@GetMapping("/clientes/tipos_documentos")
+	public List<TipoDocumento> listarTipos_Documnetos() {
+		return clienteService.findAllTipoDocumento();
 	}
 
 }

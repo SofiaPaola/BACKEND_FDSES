@@ -68,6 +68,12 @@ public class Cliente implements Serializable {
 	@JoinColumn(name = "id_ciudad")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Ciudad ciudad;
+	
+	@NotEmpty(message = "no puede ser vacio")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_tipo_documento")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private TipoDocumento tipo_documento;
 
 	private String observaciones;
 
@@ -165,6 +171,14 @@ public class Cliente implements Serializable {
 
 	public void setCiudad(Ciudad ciudad) {
 		this.ciudad = ciudad;
+	}
+
+	public TipoDocumento getTipo_documento() {
+		return tipo_documento;
+	}
+
+	public void setTipo_documento(TipoDocumento tipo_documento) {
+		this.tipo_documento = tipo_documento;
 	}
 
 	public String getObservaciones() {

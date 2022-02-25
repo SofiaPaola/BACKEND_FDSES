@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IClienteDao;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 
 @Service
 public class ClienteServieImpl implements IClienteService {
@@ -52,6 +53,12 @@ public class ClienteServieImpl implements IClienteService {
 	@Transactional(readOnly = true)
 	public List<Ciudad> findAllCiudad() {
 		return clienteDao.findAllCiudad();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<TipoDocumento> findAllTipoDocumento() {
+		return clienteDao.findAllTipoDocumento();
 	}
 	
 }
