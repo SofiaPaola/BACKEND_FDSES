@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
+
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
@@ -65,7 +66,7 @@ public class Cliente implements Serializable {
 	@NotEmpty(message = "no puede ser vacio")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ciudad")
-	@JsonIgnoreProperties({"hibernateLazyIniatializer", "handler"})
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Ciudad ciudad;
 
 	private String observaciones;
