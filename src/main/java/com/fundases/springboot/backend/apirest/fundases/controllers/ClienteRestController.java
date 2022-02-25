@@ -140,7 +140,7 @@ public class ClienteRestController {
 			clienteActual.setEmail(cliente.getEmail());
 			clienteActual.setFecha_ingreso(cliente.getFecha_ingreso());
 			clienteActual.setCiudad(cliente.getCiudad());
-			//clienteActual.setTipo_documento(cliente.getTipo_documento());
+			clienteActual.setTipo_documento(cliente.getTipo_documento());
 			clienteActual.setObservaciones(cliente.getObservaciones()); 
 			
 			clienteUpdated = clienteService.save(clienteActual);
