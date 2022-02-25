@@ -242,12 +242,12 @@ public class VendedorRestController {
 //}
 //
 //
-	@GetMapping("/clientes/ciudades")
+	@GetMapping("/vendedores/ciudades")
 	public List<Ciudad> listarCiudades() {
 		return vendedorService.findAllCiudad();
 	}
 
-	@GetMapping("/clientes/tipos_documentos")
+	@GetMapping("/vendedores/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {
 		return vendedorService.findAllTipoDocumento();
 	}
