@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IClienteService;
 
@@ -137,7 +138,7 @@ public class ClienteRestController {
 			clienteActual.setCelular(cliente.getCelular());
 			clienteActual.setEmail(cliente.getEmail());
 			clienteActual.setFecha_ingreso(cliente.getFecha_ingreso());
-			//clienteActual.setCiudad(cliente.getCiudad());
+			clienteActual.setCiudad(cliente.getCiudad());
 			//clienteActual.setTipo_documento(cliente.getTipo_documento());
 			clienteActual.setObservaciones(cliente.getObservaciones()); 
 			
@@ -171,6 +172,11 @@ public class ClienteRestController {
 		response.put("mensaje", "El cliente eliminado con éxito!");
 		
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping("/clientes/ciudades")
+	public List<Ciudad> listarCiudades() {
+		return clienteService.findAllCiudad();
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IClienteDao;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
 
 @Service
@@ -45,6 +46,12 @@ public class ClienteServieImpl implements IClienteService {
 	@Transactional
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Ciudad> findAllCiudad() {
+		return clienteDao.findAllCiudad();
 	}
 	
 }

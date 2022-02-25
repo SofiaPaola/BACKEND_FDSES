@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
 
 public interface IClienteService {
@@ -18,5 +19,7 @@ public interface IClienteService {
 	public Cliente save(Cliente cliente);
 
 	public void delete(Long id);
+	
+	public List<Ciudad> findAllCiudad();
 
 }
