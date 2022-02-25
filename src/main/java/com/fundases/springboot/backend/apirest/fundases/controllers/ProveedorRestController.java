@@ -241,12 +241,12 @@ public class ProveedorRestController {
 //}
 //
 //
-	@GetMapping("/clientes/ciudades")
+	@GetMapping("/proveedores/ciudades")
 	public List<Ciudad> listarCiudades() {
 		return proveedorService.findAllCiudad();
 	}
 
-	@GetMapping("/clientes/tipos_documentos")
+	@GetMapping("/proveedores/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {
 		return proveedorService.findAllTipoDocumento();
 	}
