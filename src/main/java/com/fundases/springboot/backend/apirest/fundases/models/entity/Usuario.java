@@ -1,7 +1,7 @@
 package com.fundases.springboot.backend.apirest.fundases.models.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,8 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+//import javax.persistence.Temporal;
+//import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -28,28 +28,26 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "usuarioEmail")
+	//@Column(name = "usuarioEmail")
 	private String username;
-	
-	@Column(name = "clave")
+		
 	private String password;
 	
 	private String nombre;
 	
-	@Column(name = "FechaUltimoIngreso")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_ultimo_ingreso;
+	//@Temporal(TemporalType.DATE)
+	//private Date FechaUltimoIngreso;
 	
-	@Column(name = "FechaActivacionInicial")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_activacion_inicial;
 	
-	@Column(name = "FechaActivacionFinal")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_activacion_final;
+	//@Temporal(TemporalType.DATE)
+	//private Date FechaActivacionInicial;
+	
+	
+	//@Temporal(TemporalType.DATE)
+	//private Date FechaActivacionFinal;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "rol_usuario", joinColumns = @JoinColumn(name = "id_usuario"), 
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "id_usuario"), 
 	inverseJoinColumns = @JoinColumn(name = "id_rol"), 
 	uniqueConstraints = {@UniqueConstraint(columnNames = { "id_usuario", "id_rol"})})
 	private List<Rol> roles;
@@ -86,29 +84,29 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Date getFecha_ultimo_ingreso() {
-		return fecha_ultimo_ingreso;
+	/*public Date getFechaUltimoIngreso() {
+		return FechaUltimoIngreso;
 	}
 
-	public void setFecha_ultimo_ingreso(Date fecha_ultimo_ingreso) {
-		this.fecha_ultimo_ingreso = fecha_ultimo_ingreso;
+	public void setFechaUltimoIngreso(Date fechaUltimoIngreso) {
+		FechaUltimoIngreso = fechaUltimoIngreso;
 	}
 
-	public Date getFecha_activacion_inicial() {
-		return fecha_activacion_inicial;
+	public Date getFechaActivacionInicial() {
+		return FechaActivacionInicial;
 	}
 
-	public void setFecha_activacion_inicial(Date fecha_activacion_inicial) {
-		this.fecha_activacion_inicial = fecha_activacion_inicial;
+	public void setFechaActivacionInicial(Date fechaActivacionInicial) {
+		FechaActivacionInicial = fechaActivacionInicial;
 	}
 
-	public Date getFecha_activacion_final() {
-		return fecha_activacion_final;
+	public Date getFechaActivacionFinal() {
+		return FechaActivacionFinal;
 	}
 
-	public void setFecha_activacion_final(Date fecha_activacion_final) {
-		this.fecha_activacion_final = fecha_activacion_final;
-	}
+	public void setFechaActivacionFinal(Date fechaActivacionFinal) {
+		FechaActivacionFinal = fechaActivacionFinal;
+	}*/
 
 	public List<Rol> getRoles() {
 		return roles;
