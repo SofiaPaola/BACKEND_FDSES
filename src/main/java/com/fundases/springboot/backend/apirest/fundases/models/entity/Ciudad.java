@@ -22,6 +22,8 @@ public class Ciudad implements Serializable{
 	
 	private String altitud;
 	
+	
+	
 	public Long getId() {
 		return id;
 	}
