@@ -70,7 +70,7 @@ public class ProveedorRestController {
 
 		if (proveedor == null) {
 
-			response.put("mensaje", "El vendedor ID: ".concat(id.toString().concat(" No existe en la base de datos")));
+			response.put("mensaje", "El proveedor ID: ".concat(id.toString().concat(" No existe en la base de datos")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
@@ -160,7 +160,7 @@ public class ProveedorRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		response.put("mensaje", "El vendedor ha sido actualizado con Exito!");
+		response.put("mensaje", "El proveedor ha sido actualizado con Exito!");
 		response.put("proveedor", proveedorUpdate);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 

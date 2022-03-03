@@ -50,6 +50,8 @@ public class Proveedor implements Serializable{
 	private String email;
 	@NotEmpty(message = "no puede estar vacio")
 	private String direccion;
+	
+	
 
 	@NotNull(message = "La fecha No puede estar vacia")
 	@Temporal(TemporalType.DATE)
@@ -63,9 +65,31 @@ public class Proveedor implements Serializable{
 	
 	@NotEmpty(message = "no puede ser vacio")
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_tipo_documento")
+	@JoinColumn(name = "id_tipo_documento")	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private TipoDocumento tipo_documento;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private Long activo;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private String contratista;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private Long disponibilidad;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private String critico;
+	
+	
+	private String archivo_arl;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private String afiliado_sgr;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private String implementa_sgsst;
+	
 	
 	public Long getId() {
 		return id;
@@ -77,6 +101,62 @@ public class Proveedor implements Serializable{
 
 	public String getDocumento() {
 		return documento;
+	}
+
+	public Long getActivo() {
+		return activo;
+	}
+
+	public void setActivo(Long activo) {
+		this.activo = activo;
+	}
+
+	public String getContratista() {
+		return contratista;
+	}
+
+	public void setContratista(String contratista) {
+		this.contratista = contratista;
+	}
+
+	public Long getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public void setDisponibilidad(Long disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}
+
+	public String getCritico() {
+		return critico;
+	}
+
+	public void setCritico(String critico) {
+		this.critico = critico;
+	}
+
+	public String getArchivo_arl() {
+		return archivo_arl;
+	}
+
+	public void setArchivo_arl(String archivo_arl) {
+		this.archivo_arl = archivo_arl;
+	}
+
+	public String getAfiliado_sgr() {
+		return afiliado_sgr;
+	}
+
+	public void setAfiliado_sgr(String afiliado_sgr) {
+		this.afiliado_sgr = afiliado_sgr;
+	}
+
+	public String getImplementa_sgsst() {
+		return implementa_sgsst;
+	}
+
+	public void setImplementa_sgsst(String implementa_sgsst) {
+		this.implementa_sgsst = implementa_sgsst;
 	}
 
 	public void setDocumento(String documento) {
