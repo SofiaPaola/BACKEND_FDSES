@@ -35,6 +35,8 @@ public class Usuario implements Serializable {
 	
 	private String nombre;
 	
+	private Boolean enabled;
+	
 	//@Temporal(TemporalType.DATE)
 	//private Date FechaUltimoIngreso;
 	
@@ -50,7 +52,7 @@ public class Usuario implements Serializable {
 	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "id_usuario"), 
 	inverseJoinColumns = @JoinColumn(name = "id_rol"), 
 	uniqueConstraints = {@UniqueConstraint(columnNames = { "id_usuario", "id_rol"})})
-	private List<Rol> roles;
+	private List<Role> rol;
 	
 	public Long getId() {
 		return id;
@@ -84,6 +86,8 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
+	
+	
 	/*public Date getFechaUltimoIngreso() {
 		return FechaUltimoIngreso;
 	}
@@ -108,12 +112,20 @@ public class Usuario implements Serializable {
 		FechaActivacionFinal = fechaActivacionFinal;
 	}*/
 
-	public List<Rol> getRoles() {
-		return roles;
+	public boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setRoles(List<Rol> roles) {
-		this.roles = roles;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<Role> getRoles() {
+		return rol;
+	}
+
+	public void setRoles(List<Role> rol) {
+		this.rol = rol;
 	}
 
 	private static final long serialVersionUID = 1L;
