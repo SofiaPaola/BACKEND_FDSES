@@ -29,8 +29,6 @@ public class Role implements Serializable {
 		this.id = id;
 	}
 
-	
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -38,8 +36,6 @@ public class Role implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
 
 	private static final long serialVersionUID = 1L;
 
