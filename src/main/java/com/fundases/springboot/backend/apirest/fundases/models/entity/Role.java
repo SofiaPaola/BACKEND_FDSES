@@ -11,15 +11,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="roles")
-public class Rol implements Serializable {
+public class Role implements Serializable {
 
 	@Id
 	@Column(name = "id_rol")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(unique = true, length = 20)
-	private String rol;
+	@Column(name = "rol", unique = true)
+	private String nombre;
 	
 	public Long getId() {
 		return id;
@@ -29,12 +29,12 @@ public class Rol implements Serializable {
 		this.id = id;
 	}
 
-	public String getRol() {
-		return rol;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setRol(String rol) {
-		this.rol = rol;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	private static final long serialVersionUID = 1L;

@@ -40,11 +40,11 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
 
 		List<GrantedAuthority> authorities = usuario.getRoles()
 				.stream()
-				.map(rol -> new SimpleGrantedAuthority(rol.getRol()))
+				.map(rol -> new SimpleGrantedAuthority(rol.getNombre()))
 				.peek(authority -> logger.info("Rol: " + authority.getAuthority()))
 				.collect(Collectors.toList());
 
-		return new User(usuario.getUsername(), usuario.getPassword(), true, true, true, false, authorities);
+		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
 
 	}
 	

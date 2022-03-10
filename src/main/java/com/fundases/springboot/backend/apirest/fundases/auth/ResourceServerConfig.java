@@ -14,7 +14,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -24,11 +23,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/clientes", "/api/clientes/page/**","/api/proveedores", "/api/proveedores/page/**", "/api/vendedores", "/api/vendedores/page/**","/api/uploads/img/**","/imagenes/**").permitAll()
 		/*.antMatchers("/api/clientes/{id}").permitAll()
 		.antMatchers("/api/facturas/**").permitAll()
-		.antMatchers(HttpMethod.GET, "/api/clientes/{id}").hasAnyRole("USER", "ADMIN")
-		.antMatchers(HttpMethod.POST, "/api/clientes/upload").hasAnyRole("USER", "ADMIN")
+		.antMatchers(HttpMethod.GET, "/api/clientes/{id}").hasAnyRole("CLIENTE", "ADMIN")
 		.antMatchers(HttpMethod.POST, "/api/clientes").hasRole("ADMIN")
-		.antMatchers("/api/clientes/**").hasRole("ADMIN")*/
-		.anyRequest().authenticated()
+		.antMatchers("/api/clientes/**").hasRole("ADMIN")
+		.anyRequest().authenticated();*/
 		.and().cors().configurationSource(corsConfigurationSource());
 	}
 	
@@ -36,7 +34,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-		configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:80", "http://localhost:8089"));
+		configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
 		configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "OPTIONS"));
 		configuration.setAllowCredentials(true);
 		configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
