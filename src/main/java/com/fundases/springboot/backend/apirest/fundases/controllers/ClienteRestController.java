@@ -46,7 +46,7 @@ public class ClienteRestController {
 	
 	@GetMapping("/clientes/page/{page}")
 	public Page<Cliente> index(@PathVariable Integer page) {
-		Pageable pageable = PageRequest.of(page, 10);
+		Pageable pageable = PageRequest.of(page, 8);
 		return clienteService.findAll(pageable);
 	}
 	
@@ -185,7 +185,7 @@ public class ClienteRestController {
 	public List<Ciudad> listarCiudades() {
 		return clienteService.findAllCiudad();
 	}
-	
+
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {

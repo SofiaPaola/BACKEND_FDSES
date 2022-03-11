@@ -23,7 +23,9 @@ public interface IClienteService {
 
 	public void delete(Long id);
 	
+	
 	public List<Ciudad> findAllCiudad();
+	
 	
 	public List<TipoDocumento> findAllTipoDocumento();
 	
