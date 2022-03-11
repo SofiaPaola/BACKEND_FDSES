@@ -15,13 +15,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
@@ -36,7 +33,6 @@ public class Cliente implements Serializable {
 	private String documento;
 
 	@NotEmpty(message = "no puede ser vacio")
-	@Size(min=5, max=100)
 	private String nombre;
 
 	@NotEmpty(message = "no puede ser vacio")
