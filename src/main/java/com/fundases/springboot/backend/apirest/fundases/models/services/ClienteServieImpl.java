@@ -51,14 +51,14 @@ public class ClienteServieImpl implements IClienteService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Ciudad> findAllCiudad() {
-		return clienteDao.findAllCiudad();
+	public List<Ciudad> findAllCiudades() {
+		return clienteDao.findAllCiudades();
 	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<TipoDocumento> findAllTipoDocumento() {
-		return clienteDao.findAllTipoDocumento();
+	public List<TipoDocumento> findAllTipoDocumentos() {
+		return clienteDao.findAllTipoDocumentos();
 	}
 	
 }
