@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Factura;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Producto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 
 public interface IClienteService {
@@ -26,5 +28,13 @@ public interface IClienteService {
 	
 	
 	public List<TipoDocumento> findAllTipoDocumentos();
+	
+	public Factura findFacturaById(Long id);
+
+	public Factura saveFactura(Factura factura);
+	
+	public void deleteFacturaById(Long id);
+	
+	public List<Producto> findProductoByNombre(String term);
 
 }
