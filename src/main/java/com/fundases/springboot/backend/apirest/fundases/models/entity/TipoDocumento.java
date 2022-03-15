@@ -18,7 +18,8 @@ public class TipoDocumento implements Serializable{
 	@Column(name = "id_tipo_documento")
 	private Long id;
 	
-	private String tipo_documento;
+	@Column(name = "tipo_documento")
+	private String nombre;
 	
 	public Long getId() {
 		return id;
@@ -28,12 +29,12 @@ public class TipoDocumento implements Serializable{
 		this.id = id;
 	}
 
-	public String getTipo_documento() {
-		return tipo_documento;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setTipo_documento(String tipo_documento) {
-		this.tipo_documento = tipo_documento;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	private static final long serialVersionUID = 1L;

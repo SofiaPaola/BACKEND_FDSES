@@ -28,6 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IClienteService;
 
@@ -188,8 +190,20 @@ public class ClienteRestController {
 
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/tipos_documentos")
-	public List<TipoDocumento> listarTipos_Documnetos() {
+	public List<TipoDocumento> listarTipos_Documentos() {
 		return clienteService.findAllTipoDocumento();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/clientes/climas")
+	public List<Clima> listarClimas() {
+		return clienteService.findAllClima();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/clientes/departamento")
+	public List<Departamento> listarDepatamentos() {
+		return clienteService.findAllDepartamento();
 	}
 
 }

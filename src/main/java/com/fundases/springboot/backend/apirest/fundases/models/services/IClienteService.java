@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Factura;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Producto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
@@ -23,11 +25,15 @@ public interface IClienteService {
 
 	public void delete(Long id);
 	
-	
 	public List<Ciudad> findAllCiudad();
 	
+	//public List<Ciudad> findCiudadByCiudad(String term);
 	
 	public List<TipoDocumento> findAllTipoDocumento();
+	
+	public List<Clima> findAllClima();
+	
+	public List<Departamento> findAllDepartamento();
 	
 	public Factura findFacturaById(Long id);
 

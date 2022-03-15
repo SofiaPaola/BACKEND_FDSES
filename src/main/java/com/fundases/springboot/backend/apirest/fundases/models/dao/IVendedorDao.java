@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Vendedor;
 
@@ -16,5 +18,11 @@ public interface IVendedorDao  extends JpaRepository<Vendedor, Long>{
 	
 	@Query("from TipoDocumento")
 	public List<TipoDocumento> findAllTipoDocumento();
+	
+	@Query("from Clima")
+	public List<Clima> findAllClimas();
+	
+	@Query("from Departamento")
+	public List<Departamento> findAllDepartamentos();
 	
 }

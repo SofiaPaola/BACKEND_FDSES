@@ -1,6 +1,5 @@
 package com.fundases.springboot.backend.apirest.fundases.models.entity;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -16,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
 
-
 @Entity
 @Table(name = "ciudades")
 public class Ciudad implements Serializable{
@@ -26,11 +24,11 @@ public class Ciudad implements Serializable{
 	@Column(name = "id_ciudad")
 	private Long id;
 	
-	private String ciudad;
+	@Column(name = "ciudad")
+	private String nombre;
 	
 	private String altitud;
 	
-
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id_clima")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -40,16 +38,6 @@ public class Ciudad implements Serializable{
 	@JoinColumn(name = "id_departamento")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Departamento departamento;
-	
-	
-	
-	public Departamento getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
 
 	public Long getId() {
 		return id;
@@ -59,12 +47,12 @@ public class Ciudad implements Serializable{
 		this.id = id;
 	}
 
-	public String getCiudad() {
-		return ciudad;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
+	public void setNombre(String ciudad) {
+		this.nombre = ciudad;
 	}
 
 	public String getAltitud() {
@@ -84,6 +72,14 @@ public class Ciudad implements Serializable{
 		this.clima = clima;
 	}
 
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+	
 	private static final long serialVersionUID = 1L;
 
 }

@@ -8,11 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//import com.fundases.springboot.backend.apirest.fundases.models.dao.ICiudadDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IClienteDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IFacturaDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IProductoDao;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Cliente;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Factura;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Producto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
@@ -25,6 +28,9 @@ public class ClienteServieImpl implements IClienteService {
 	
 	@Autowired
 	private IFacturaDao facturaDao;
+	
+	/*@Autowired
+	private ICiudadDao ciudadDao;*/
 	
 	@Autowired
 	private IProductoDao productoDao;
@@ -59,6 +65,12 @@ public class ClienteServieImpl implements IClienteService {
 		clienteDao.deleteById(id);
 	}
 
+	/*@Override
+	@Transactional(readOnly = true)
+	public List<Ciudad> findCiudadByCiudad(String term) {
+		return ciudadDao.findByCiudadContainingIgnoreCase(term);
+	}*/
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Ciudad> findAllCiudad() {
@@ -71,6 +83,16 @@ public class ClienteServieImpl implements IClienteService {
 		return clienteDao.findAllTipoDocumento();
 	}
 
+	@Override
+	public List<Clima> findAllClima() {
+		return clienteDao.findAllClima();
+	}
+
+	@Override
+	public List<Departamento> findAllDepartamento() {
+		return clienteDao.findAllDepartamento();
+	}
+	
 	@Override
 	@Transactional(readOnly = true)
 	public Factura findFacturaById(Long id) {
