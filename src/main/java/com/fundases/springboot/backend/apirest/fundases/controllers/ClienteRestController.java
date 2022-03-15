@@ -185,7 +185,7 @@ public class ClienteRestController {
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/ciudades")
 	public List<Ciudad> listarCiudades() {
-		return clienteService.findAllCiudades();
+		return clienteService.findAllCiudad();
 	}
 
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
