@@ -29,7 +29,7 @@ public interface IClienteService {
 	
 	//public List<Ciudad> findCiudadByCiudad(String term);
 	
-	public List<TipoDocumento> findAllTipoDocumento();
+	public List<TipoDocumento> findAllTipoDocumentos();
 	
 	public List<Clima> findAllClima();
 	

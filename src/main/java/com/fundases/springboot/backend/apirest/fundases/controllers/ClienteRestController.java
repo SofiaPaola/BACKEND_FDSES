@@ -185,13 +185,13 @@ public class ClienteRestController {
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/ciudades")
 	public List<Ciudad> listarCiudades() {
-		return clienteService.findAllCiudad();
+		return clienteService.findAllCiudades();
 	}
 
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/tipos_documentos")
-	public List<TipoDocumento> listarTipos_Documentos() {
-		return clienteService.findAllTipoDocumento();
+	public List<TipoDocumento> listarTipos_Documnetos() {
+		return clienteService.findAllTipoDocumentos();
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})

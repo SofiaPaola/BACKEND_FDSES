@@ -14,10 +14,10 @@ import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocume
 public interface IClienteDao extends JpaRepository<Cliente, Long> {
 	
 	@Query("from Ciudad")
-	public List<Ciudad> findAllCiudad();
+	public List<Ciudad> findAllCiudades();
 	
 	@Query("from TipoDocumento")
-	public List<TipoDocumento> findAllTipoDocumento();
+	public List<TipoDocumento> findAllTipoDocumentos();
 	
 	@Query("from Clima")
 	public List<Clima> findAllClima();
