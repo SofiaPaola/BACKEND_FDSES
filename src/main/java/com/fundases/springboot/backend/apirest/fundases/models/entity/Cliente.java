@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -61,13 +62,13 @@ public class Cliente implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_ingreso;
 	
-	@NotEmpty(message = "no puede ser vacio")
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ciudad")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Ciudad ciudad;
 	
-	@NotEmpty(message = "no puede ser vacio")
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_documento")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
