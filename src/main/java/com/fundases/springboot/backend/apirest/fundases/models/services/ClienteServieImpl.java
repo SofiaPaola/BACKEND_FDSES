@@ -84,11 +84,13 @@ public class ClienteServieImpl implements IClienteService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Clima> findAllClima() {
 		return clienteDao.findAllClima();
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<Departamento> findAllDepartamento() {
 		return clienteDao.findAllDepartamento();
 	}

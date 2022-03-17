@@ -34,18 +34,23 @@ public class Vendedor implements Serializable {
 	@Size(min = 4, max = 15, message = "debe tener un  tamaño entre 4 y 15 caracteres")
 	@Column(nullable = false)
 	private String documento;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
 	@Column(nullable = false)
 	private String nombre;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String telefono;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String celular;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	@Email(message = "no es una dirección de correo bien formada")
 	@Column(nullable = false, unique = false)
 	private String email;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String direccion;
 
@@ -68,7 +73,6 @@ public class Vendedor implements Serializable {
 	public Long getId() {
 		return id;
 	}
-	
 	
 	public void setId(Long id) {
 		this.id = id;

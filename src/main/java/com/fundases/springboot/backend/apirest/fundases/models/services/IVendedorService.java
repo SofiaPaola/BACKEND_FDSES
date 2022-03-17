@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Vendedor;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 
 public interface IVendedorService {
@@ -24,5 +26,9 @@ public interface IVendedorService {
 	public List<Ciudad> findAllCiudad();
 
 	public List<TipoDocumento> findAllTipoDocumento();
+
+	public List<Clima> findAllClima();
+
+	public List<Departamento> findAllDepartamento();
 
 }

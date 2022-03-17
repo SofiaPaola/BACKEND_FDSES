@@ -20,9 +20,9 @@ public interface IVendedorDao  extends JpaRepository<Vendedor, Long>{
 	public List<TipoDocumento> findAllTipoDocumento();
 	
 	@Query("from Clima")
-	public List<Clima> findAllClimas();
+	public List<Clima> findAllClima();
 	
 	@Query("from Departamento")
-	public List<Departamento> findAllDepartamentos();
+	public List<Departamento> findAllDepartamento();
 	
 }

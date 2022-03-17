@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +29,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Vendedor;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IVendedorService;
 
@@ -54,6 +57,7 @@ public class VendedorRestController {
 		return vendedorService.findAll(pageable);
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/vendedores/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
@@ -79,6 +83,7 @@ public class VendedorRestController {
 
 	};
 
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/vendedores")
 	public ResponseEntity<?> create(@Valid @RequestBody Vendedor cliente, BindingResult result) {
 
@@ -115,6 +120,7 @@ public class VendedorRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@PutMapping("/vendedores/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> update(@Valid @RequestBody Vendedor vendedor, BindingResult result,
@@ -167,6 +173,7 @@ public class VendedorRestController {
 
 	}
 
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping("/vendedores/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -242,14 +249,28 @@ public class VendedorRestController {
 //}
 //
 //
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/vendedores/ciudades")
 	public List<Ciudad> listarCiudades() {
 		return vendedorService.findAllCiudad();
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/vendedores/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {
 		return vendedorService.findAllTipoDocumento();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/vendedores/climas")
+	public List<Clima> listarClimas() {
+		return vendedorService.findAllClima();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/vendedores/departamento")
+	public List<Departamento> listarDepatamentos() {
+		return vendedorService.findAllDepartamento();
 	}
 
 }
