@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,6 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Proveedor;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.services.IProveedorService;
 //import com.fundases.springboot.backend.apirest.fundases.models.services.IUploadFileService;
 
@@ -241,14 +244,27 @@ public class ProveedorRestController {
 //}
 //
 //
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/proveedores/ciudades")
 	public List<Ciudad> listarCiudades() {
 		return proveedorService.findAllCiudad();
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/proveedores/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {
 		return proveedorService.findAllTipoDocumento();
 	}
-
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/proveedores/climas")
+	public List<Clima> listarClimas() {
+		return proveedorService.findAllClima();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/proveedores/departamento")
+	public List<Departamento> listarDepatamentos() {
+		return proveedorService.findAllDepartamento();
+	}
 }
