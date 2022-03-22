@@ -23,9 +23,7 @@ public interface IVendedorDao  extends JpaRepository<Vendedor, Long>{
 	@Query("from Clima")
 	public List<Clima> findAllClima();
 	
-	
 	@Query("from Departamento")
 	public List<Departamento> findAllDepartamento();
-	
 	
 }

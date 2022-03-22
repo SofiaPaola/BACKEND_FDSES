@@ -57,6 +57,7 @@ public class VendedorRestController {
 		return vendedorService.findAll(pageable);
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/vendedores/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
@@ -82,6 +83,7 @@ public class VendedorRestController {
 
 	};
 
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/vendedores")
 	public ResponseEntity<?> create(@Valid @RequestBody Vendedor cliente, BindingResult result) {
 
@@ -118,6 +120,7 @@ public class VendedorRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@PutMapping("/vendedores/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> update(@Valid @RequestBody Vendedor vendedor, BindingResult result,
@@ -170,6 +173,7 @@ public class VendedorRestController {
 
 	}
 
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping("/vendedores/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -268,6 +272,5 @@ public class VendedorRestController {
 	public List<Departamento> listarDepatamentos() {
 		return vendedorService.findAllDepartamento();
 	}
-
 
 }

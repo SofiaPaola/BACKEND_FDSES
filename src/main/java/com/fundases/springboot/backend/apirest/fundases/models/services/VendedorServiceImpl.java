@@ -54,12 +54,6 @@ public class VendedorServiceImpl implements IVendedorService {
 	public List<Ciudad> findAllCiudad() {
 		return vendedorDao.findAllCiudad();
 	}
-
-	@Override
-	public List<Departamento> findAllDepartamento() {
-		return vendedorDao.findAllDepartamento();
-	}
-	
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -72,4 +66,11 @@ public class VendedorServiceImpl implements IVendedorService {
 	public List<Clima> findAllClima() {
 		return vendedorDao.findAllClima();
 	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Departamento> findAllDepartamento() {
+		return vendedorDao.findAllDepartamento();
+	}
+
 }

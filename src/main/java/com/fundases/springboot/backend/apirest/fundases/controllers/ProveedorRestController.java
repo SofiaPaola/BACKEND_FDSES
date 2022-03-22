@@ -56,6 +56,7 @@ public class ProveedorRestController {
 		return proveedorService.findAll(pageable);
 	}
 
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/proveedores/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
@@ -81,6 +82,7 @@ public class ProveedorRestController {
 
 	};
 
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/proveedores")
 	public ResponseEntity<?> create(@Valid @RequestBody Proveedor proveedor, BindingResult result) {
 
@@ -117,6 +119,7 @@ public class ProveedorRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
+	@Secured("ROLE_ADMIN")
 	@PutMapping("/proveedores/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> update(@Valid @RequestBody Proveedor proveedor, BindingResult result,
@@ -169,6 +172,7 @@ public class ProveedorRestController {
 
 	}
 
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping("/proveedores/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<?> delete(@PathVariable Long id) {
