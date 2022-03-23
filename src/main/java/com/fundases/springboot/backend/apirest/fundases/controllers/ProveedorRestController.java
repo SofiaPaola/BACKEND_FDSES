@@ -267,7 +267,7 @@ public class ProveedorRestController {
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
-	@GetMapping("/proveedores/departamento")
+	@GetMapping("/proveedores/departamentos")
 	public List<Departamento> listarDepatamentos() {
 		return proveedorService.findAllDepartamento();
 	}

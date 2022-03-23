@@ -15,14 +15,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "proveedores")
 public class Proveedor implements Serializable{
@@ -36,18 +37,23 @@ public class Proveedor implements Serializable{
 	@Size(min = 4, max = 15, message = "debe tener un  tamaño entre 4 y 15 caracteres")
 	@Column(nullable = false)
 	private String documento;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
 	@Column(nullable = false)
 	private String nombre;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String telefono;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String celular;
+	
 	@NotEmpty(message = "no puede estar vacio")
-	@Email(message = "no es una dirección de correo bien formada")
+	//@Email(message = "no es una dirección de correo bien formada")
 	@Column(nullable = false, unique = false)
 	private String email;
+	
 	@NotEmpty(message = "no puede estar vacio")
 	private String direccion;
 	
@@ -57,13 +63,13 @@ public class Proveedor implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date fecha_ingreso;
 
-	@NotEmpty(message = "no puede ser vacio")
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ciudad")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Ciudad ciudad;
 	
-	@NotEmpty(message = "no puede ser vacio")
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_documento")	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
