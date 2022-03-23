@@ -10,10 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IVendedorDao;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Vendedor;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
-import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Departamento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.TipoDocumento;
-
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Clima;
 @Service
 public class VendedorServiceImpl implements IVendedorService {
 	
@@ -55,14 +54,13 @@ public class VendedorServiceImpl implements IVendedorService {
 	public List<Ciudad> findAllCiudad() {
 		return vendedorDao.findAllCiudad();
 	}
-
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<TipoDocumento> findAllTipoDocumento() {
-		return vendedorDao.findAllTipoDocumento();
+	public List<TipoDocumento> findAllTipoDocumentos() {
+		return vendedorDao.findAllTipoDocumentos();
 	}
-
+	
 	@Override
 	@Transactional(readOnly = true)
 	public List<Clima> findAllClima() {

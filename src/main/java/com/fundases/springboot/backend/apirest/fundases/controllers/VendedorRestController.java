@@ -258,7 +258,7 @@ public class VendedorRestController {
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/vendedores/tipos_documentos")
 	public List<TipoDocumento> listarTipos_Documnetos() {
-		return vendedorService.findAllTipoDocumento();
+		return vendedorService.findAllTipoDocumentos();
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})

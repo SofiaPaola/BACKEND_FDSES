@@ -271,5 +271,4 @@ public class ProveedorRestController {
 	public List<Departamento> listarDepatamentos() {
 		return proveedorService.findAllDepartamento();
 	}
-
 }

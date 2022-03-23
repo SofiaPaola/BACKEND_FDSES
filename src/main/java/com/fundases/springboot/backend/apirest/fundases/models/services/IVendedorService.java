@@ -25,7 +25,7 @@ public interface IVendedorService {
 
 	public List<Ciudad> findAllCiudad();
 
-	public List<TipoDocumento> findAllTipoDocumento();
+	public List<TipoDocumento> findAllTipoDocumentos();
 
 	public List<Clima> findAllClima();
 
