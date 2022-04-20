@@ -18,7 +18,8 @@ public class Departamento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String departamento;
+	@Column(name = "departamento")
+	private String nombre;
 	
 	public Long getId() {
 		return id;
@@ -28,12 +29,12 @@ public class Departamento implements Serializable {
 		this.id = id;
 	}
 
-	public String getDepartamento() {
-		return departamento;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	private static final long serialVersionUID = 1L;

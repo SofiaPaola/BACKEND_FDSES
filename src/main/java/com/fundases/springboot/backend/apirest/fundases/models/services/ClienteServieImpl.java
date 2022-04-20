@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//import com.fundases.springboot.backend.apirest.fundases.models.dao.ICiudadDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IClienteDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IFacturaDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.IProductoDao;
@@ -29,8 +28,8 @@ public class ClienteServieImpl implements IClienteService {
 	@Autowired
 	private IFacturaDao facturaDao;
 	
-	/*@Autowired
-	private ICiudadDao ciudadDao;*/
+	//@Autowired
+	//private ICiudadDao ciudadDao;
 	
 	@Autowired
 	private IProductoDao productoDao;
@@ -64,18 +63,18 @@ public class ClienteServieImpl implements IClienteService {
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
 	}
-
-	/*@Override
-	@Transactional(readOnly = true)
-	public List<Ciudad> findCiudadByCiudad(String term) {
-		return ciudadDao.findByCiudadContainingIgnoreCase(term);
-	}*/
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Ciudad> findAllCiudad() {
+	public List<Ciudad> findAllCiudades() {
 		return clienteDao.findAllCiudades();
 	}
+
+	/*@Override
+	@Transactional(readOnly = true)
+	public List<Ciudad> findCiudadByNombre(String term) {
+		return ciudadDao.findByCiudadContainingIgnoreCase(term);
+	}*/
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -118,5 +117,6 @@ public class ClienteServieImpl implements IClienteService {
 	public List<Producto> findProductoByNombre(String term) {
 		return productoDao.findByNombreContainingIgnoreCase(term);
 	}
+
 	
 }

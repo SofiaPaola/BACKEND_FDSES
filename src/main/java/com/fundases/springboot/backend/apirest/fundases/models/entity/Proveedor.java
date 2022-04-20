@@ -75,13 +75,15 @@ public class Proveedor implements Serializable{
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private TipoDocumento tipo_documento;
 	
-	@NotEmpty(message = "no puede estar vacio")
+	@NotNull
+	//@NotEmpty(message = "no puede estar vacio")
 	private Long activo;
 	
 	@NotEmpty(message = "no puede estar vacio")
 	private String contratista;
 	
-	@NotEmpty(message = "no puede estar vacio")
+	@NotNull
+	//@NotEmpty(message = "no puede estar vacio")
 	private Long disponibilidad;
 	
 	@NotEmpty(message = "no puede estar vacio")

@@ -268,7 +268,7 @@ public class VendedorRestController {
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
-	@GetMapping("/vendedores/departamento")
+	@GetMapping("/vendedores/departamentos")
 	public List<Departamento> listarDepatamentos() {
 		return vendedorService.findAllDepartamento();
 	}

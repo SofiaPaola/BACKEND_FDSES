@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Ciudad;
@@ -185,7 +186,7 @@ public class ClienteRestController {
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/clientes/ciudades")
 	public List<Ciudad> listarCiudades() {
-		return clienteService.findAllCiudad();
+		return clienteService.findAllCiudades();
 	}
 
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
@@ -201,7 +202,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
-	@GetMapping("/clientes/departamento")
+	@GetMapping("/clientes/departamentos")
 	public List<Departamento> listarDepatamentos() {
 		return clienteService.findAllDepartamento();
 	}
