@@ -44,6 +44,16 @@ public class Proveedor implements Serializable{
 	private String nombre;
 	
 	@NotEmpty(message = "no puede estar vacio")
+	//@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
+	//@Column(nullable = false)
+	private String contacto;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	//@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
+	//@Column(nullable = false)
+	private String cargo;
+	
+	@NotEmpty(message = "no puede estar vacio")
 	private String telefono;
 	
 	@NotEmpty(message = "no puede estar vacio")
@@ -56,8 +66,6 @@ public class Proveedor implements Serializable{
 	
 	@NotEmpty(message = "no puede estar vacio")
 	private String direccion;
-	
-	
 
 	@NotNull(message = "La fecha No puede estar vacia")
 	@Temporal(TemporalType.DATE)
@@ -75,32 +83,46 @@ public class Proveedor implements Serializable{
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private TipoDocumento tipo_documento;
 	
-	@NotNull
+	
 	//@NotEmpty(message = "no puede estar vacio")
 	private Long activo;
 	
 	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String contratista;
 	
-	@NotNull
+	
 	//@NotEmpty(message = "no puede estar vacio")
 	private Long disponibilidad;
 	
 	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String critico;
-	
 	
 	private String archivo_arl;
 	
 	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 2, max = 2, message = "La respuesta tiene que ser SI o NO")
 	private String afiliado_sgr;
 	
 	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 2, max = 2, message = "La respuesta tiene que ser SI o NO")
 	private String implementa_sgsst;
 	
+	private String observaciones;
 	
+	private Long id_forma_pago;
+
 	public Long getId() {
 		return id;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
 	}
 
 	public void setId(Long id) {
@@ -119,6 +141,14 @@ public class Proveedor implements Serializable{
 		this.activo = activo;
 	}
 
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
 	public String getContratista() {
 		return contratista;
 	}
@@ -126,7 +156,7 @@ public class Proveedor implements Serializable{
 	public void setContratista(String contratista) {
 		this.contratista = contratista;
 	}
-
+	
 	public Long getDisponibilidad() {
 		return disponibilidad;
 	}
@@ -233,6 +263,22 @@ public class Proveedor implements Serializable{
 
 	public void setTipo_documento(TipoDocumento tipo_documento) {
 		this.tipo_documento = tipo_documento;
+	}
+
+	public String getContacto() {
+		return contacto;
+	}
+
+	public void setContacto(String contacto) {
+		this.contacto = contacto;
+	}
+
+	public Long getId_forma_pago() {
+		return id_forma_pago;
+	}
+
+	public void setId_forma_pago(Long id_forma_pago) {
+		this.id_forma_pago = id_forma_pago;
 	}
 
 	private static final long serialVersionUID = 1L;
