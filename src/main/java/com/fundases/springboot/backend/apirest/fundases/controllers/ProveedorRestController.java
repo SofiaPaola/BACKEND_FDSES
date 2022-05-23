@@ -196,10 +196,10 @@ public class ProveedorRestController {
 
 		try {
 
-			// Proveedor proveedor = proveedorService.findById(id);
-			// String nombreFotoAnterior = vendedor.getFoto();
+			Proveedor proveedor = proveedorService.findById(id);
+			String nombreArchivoAnterior = proveedor.getArchivo_arl();
 
-			// uploadService.eliminar(nombreFotoAnterior);
+			uploadService.eliminar(nombreArchivoAnterior);
 			proveedorService.delete(id);
 
 		} catch (DataAccessException e) {

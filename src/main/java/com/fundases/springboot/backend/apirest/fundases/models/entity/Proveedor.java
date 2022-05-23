@@ -14,16 +14,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.validation.constraints.NotEmpty;
 //import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "proveedores")
 public class Proveedor implements Serializable{
@@ -44,12 +41,10 @@ public class Proveedor implements Serializable{
 	private String nombre;
 	
 	@NotEmpty(message = "no puede estar vacio")
-	//@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
 	//@Column(nullable = false)
 	private String contacto;
 	
 	@NotEmpty(message = "no puede estar vacio")
-	//@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
 	//@Column(nullable = false)
 	private String cargo;
 	
@@ -83,14 +78,12 @@ public class Proveedor implements Serializable{
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private TipoDocumento tipo_documento;
 	
-	
 	//@NotEmpty(message = "no puede estar vacio")
 	private Long activo;
 	
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String contratista;
-	
 	
 	//@NotEmpty(message = "no puede estar vacio")
 	private Long disponibilidad;
