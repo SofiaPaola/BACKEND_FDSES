@@ -92,7 +92,8 @@ public class Proveedor implements Serializable{
 	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String critico;
 	
-	private String archivo_arl;
+	@Column(name="archivo_arl")
+	private String archivo;
 	
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 2, max = 2, message = "La respuesta tiene que ser SI o NO")
@@ -166,12 +167,12 @@ public class Proveedor implements Serializable{
 		this.critico = critico;
 	}
 
-	public String getArchivo_arl() {
-		return archivo_arl;
+	public String getArchivo() {
+		return archivo;
 	}
 
-	public void setArchivo_arl(String archivo_arl) {
-		this.archivo_arl = archivo_arl;
+	public void setArchivo(String archivo) {
+		this.archivo = archivo;
 	}
 
 	public String getAfiliado_sgr() {

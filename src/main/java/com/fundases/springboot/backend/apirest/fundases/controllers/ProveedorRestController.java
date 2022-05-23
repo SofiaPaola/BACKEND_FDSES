@@ -167,11 +167,10 @@ public class ProveedorRestController {
 			proveedorActual.setTipo_documento(proveedor.getTipo_documento());
 			proveedorActual.setCritico(proveedor.getCritico());
 			proveedorActual.setAfiliado_sgr(proveedor.getAfiliado_sgr());
-			proveedorActual.setArchivo_arl(proveedor.getArchivo_arl());
 			proveedorActual.setImplementa_sgsst(proveedor.getImplementa_sgsst());
 			proveedorActual.setCargo(proveedor.getCargo());
 			proveedorActual.setObservaciones(proveedor.getObservaciones());
-			proveedorActual.setArchivo_arl(proveedor.getArchivo_arl());
+			
 
 			proveedorUpdate = proveedorService.save(proveedorActual);
 
@@ -197,7 +196,7 @@ public class ProveedorRestController {
 		try {
 
 			Proveedor proveedor = proveedorService.findById(id);
-			String nombreArchivoAnterior = proveedor.getArchivo_arl();
+			String nombreArchivoAnterior = proveedor.getArchivo();
 
 			uploadService.eliminar(nombreArchivoAnterior);
 			proveedorService.delete(id);
@@ -230,11 +229,11 @@ public class ProveedorRestController {
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 
-			String nombreArchivoAnterior = proveedor.getArchivo_arl();
+			String nombreArchivoAnterior = proveedor.getArchivo();
 
 			uploadService.eliminar(nombreArchivoAnterior);
 
-			proveedor.setArchivo_arl(nombreArchivo);
+			proveedor.setArchivo(nombreArchivo);
 
 			proveedorService.save(proveedor);
 
