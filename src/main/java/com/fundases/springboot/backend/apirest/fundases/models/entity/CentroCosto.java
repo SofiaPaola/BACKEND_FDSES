@@ -22,7 +22,7 @@ public class CentroCosto implements Serializable{
 	private Long id;
 	
 	@NotEmpty(message = "no puede ser vacio")
-	private String centro_costo;
+	private Long centro_costo;
 	
 	@NotEmpty(message = "no puede ser vacio")
 	private String nombre;
@@ -34,12 +34,12 @@ public class CentroCosto implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getCentro_costo() {
+
+	public Long getCentro_costo() {
 		return centro_costo;
 	}
 
-	public void setCentro_costo(String centro_costo) {
+	public void setCentro_costo(Long centro_costo) {
 		this.centro_costo = centro_costo;
 	}
 

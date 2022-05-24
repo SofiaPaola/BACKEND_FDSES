@@ -45,11 +45,17 @@ public class CompraSolicitudCotizacionDetalle implements Serializable {
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Unidad unidades;
 
-	private String valor_unit_sin_iva;
+	private Float cantidad;
 
-	private String iva;
+	private Float valor_unitario_sin_iva;
 
-	private String valor_total_con_iva;
+	private Float descuento;
+
+	private Float iva;
+
+	private Float valor_unitario_con_iva;
+
+	private Float valor_total_con_iva;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha_solicitud;
@@ -99,27 +105,51 @@ public class CompraSolicitudCotizacionDetalle implements Serializable {
 		this.comp_solicitud_compra_det = comp_solicitud_compra_det;
 	}
 
-	public String getValor_unit_sin_iva() {
-		return valor_unit_sin_iva;
+	public Float getCantidad() {
+		return cantidad;
 	}
 
-	public void setValor_unit_sin_iva(String valor_unit_sin_iva) {
-		this.valor_unit_sin_iva = valor_unit_sin_iva;
+	public void setCantidad(Float cantidad) {
+		this.cantidad = cantidad;
 	}
 
-	public String getIva() {
+	public Float getValor_unitario_sin_iva() {
+		return valor_unitario_sin_iva;
+	}
+
+	public void setValor_unitario_sin_iva(Float valor_unitario_sin_iva) {
+		this.valor_unitario_sin_iva = valor_unitario_sin_iva;
+	}
+
+	public Float getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(Float descuento) {
+		this.descuento = descuento;
+	}
+
+	public Float getIva() {
 		return iva;
 	}
 
-	public void setIva(String iva) {
+	public void setIva(Float iva) {
 		this.iva = iva;
 	}
 
-	public String getValor_total_con_iva() {
+	public Float getValor_unitario_con_iva() {
+		return valor_unitario_con_iva;
+	}
+
+	public void setValor_unitario_con_iva(Float valor_unitario_con_iva) {
+		this.valor_unitario_con_iva = valor_unitario_con_iva;
+	}
+
+	public Float getValor_total_con_iva() {
 		return valor_total_con_iva;
 	}
 
-	public void setValor_total_con_iva(String valor_total_con_iva) {
+	public void setValor_total_con_iva(Float valor_total_con_iva) {
 		this.valor_total_con_iva = valor_total_con_iva;
 	}
 

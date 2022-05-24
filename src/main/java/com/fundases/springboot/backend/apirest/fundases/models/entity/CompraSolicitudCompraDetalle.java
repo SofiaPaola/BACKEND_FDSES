@@ -49,7 +49,7 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CompraEstado comp_estados;
 	
-	private String cantidad;
+	private Float cantidad;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_necesidad;
@@ -67,8 +67,6 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JoinColumn(name = "id_unidad_medida")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Unidad unidades;
-
-	private static final long serialVersionUID = 1L;
 
 	public Long getId() {
 		return id;
@@ -126,11 +124,11 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 		this.unidades = unidades;
 	}
 
-	public String getCantidad() {
+	public Float getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(String cantidad) {
+	public void setCantidad(Float cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -150,4 +148,6 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 		this.programado = programado;
 	}
 
+	private static final long serialVersionUID = 1L;
+	
 }

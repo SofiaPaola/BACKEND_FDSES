@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "comp_categoria_proveedores")
+@Table(name = "comp_categorias_proveedores")
 public class CompraCategoriaProveedor implements Serializable {
 
 	@Id

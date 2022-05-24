@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Email;
+//import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -50,7 +50,7 @@ public class ClienteSurcusales implements Serializable {
 	private String celular;
 	
 	@NotEmpty(message = "no puede ser vacio")
-	@Email
+	//@Email
 	private String email;
 	
 	@Temporal(TemporalType.DATE)

@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @SuppressWarnings("deprecation")
 @Entity
-@Table(name = "comp_categoria")
+@Table(name = "comp_categorias")
 public class CompraCategoria implements Serializable {
 
 	@Id

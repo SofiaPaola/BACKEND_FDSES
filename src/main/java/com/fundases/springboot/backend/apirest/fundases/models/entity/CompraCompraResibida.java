@@ -41,9 +41,9 @@ public class CompraCompraResibida implements Serializable {
 	
 	private String factura;
 	
-	private String cantidad_recibida;
+	private Float cantidad_recibida;
 	
-	private String no_entrega;
+	private Long no_entrega;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_recepcion;
@@ -76,19 +76,19 @@ public class CompraCompraResibida implements Serializable {
 		this.factura = factura;
 	}
 
-	public String getCantidad_recibida() {
+	public Float getCantidad_recibida() {
 		return cantidad_recibida;
 	}
 
-	public void setCantidad_recibida(String cantidad_recibida) {
+	public void setCantidad_recibida(Float cantidad_recibida) {
 		this.cantidad_recibida = cantidad_recibida;
 	}
 
-	public String getNo_entrega() {
+	public Long getNo_entrega() {
 		return no_entrega;
 	}
 
-	public void setNo_entrega(String no_entrega) {
+	public void setNo_entrega(Long no_entrega) {
 		this.no_entrega = no_entrega;
 	}
 

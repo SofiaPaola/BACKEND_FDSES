@@ -57,11 +57,11 @@ public class CompraOrdenCompra implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CompraEstado comp_estados;
 	
-	/*@NotNull
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_forma_pago")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Proveedor proveedores;*/
+	private Proveedor proveedorFormaPago;
 	
 	private String ruta_planilla_pago_eps;
 	
@@ -97,13 +97,13 @@ public class CompraOrdenCompra implements Serializable {
 		this.proveedores = proveedores;
 	}
 
-	/*public Proveedor getProveedores() {
-		return proveedores;
+	public Proveedor getProveedorFormaPago() {
+		return proveedorFormaPago;
 	}
 
-	public void setProveedores(Proveedor proveedores) {
-		this.proveedores = proveedores;
-	}*/
+	public void setProveedorFormaPago(Proveedor proveedorFormaPago) {
+		this.proveedorFormaPago = proveedorFormaPago;
+	}
 
 	public CompraEstado getComp_estados() {
 		return comp_estados;

@@ -19,13 +19,25 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "comp_solicitudes_cotizacion")
-public class CompraSolicitudCotizacion implements Serializable {
+@Table(name = "comp_solicitudes_compra_hist")
+public class CompraSolicitudCompraHistoria implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_solicitud_cotizacion")
+	@Column(name = "id_solicitud_hist_estado")
 	private Long id;
+	
+	/*@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_solicitud")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private ;*/
+	
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_Estado")
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private CompraEstado comp_estados;
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -36,18 +48,20 @@ public class CompraSolicitudCotizacion implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_registro;
 	
-	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_proveedor")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Proveedor proveedores;
-
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public CompraEstado getComp_estados() {
+		return comp_estados;
+	}
+
+	public void setComp_estados(CompraEstado comp_estados) {
+		this.comp_estados = comp_estados;
 	}
 
 	public Usuario getUsuarios() {
@@ -64,14 +78,6 @@ public class CompraSolicitudCotizacion implements Serializable {
 
 	public void setFecha_registro(Date fecha_registro) {
 		this.fecha_registro = fecha_registro;
-	}
-
-	public Proveedor getProveedores() {
-		return proveedores;
-	}
-
-	public void setProveedores(Proveedor proveedores) {
-		this.proveedores = proveedores;
 	}
 
 	private static final long serialVersionUID = 1L;
