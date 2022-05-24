@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompraDetalle;
@@ -77,7 +77,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 		
 	}
 	
-	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@Secured("ROLE_ADMIN")
 	@PostMapping("/solicitudCompraDetalle")
 	public ResponseEntity<?> create(@Valid @RequestBody CompraSolicitudCompraDetalle solicitudCompraDetalle, BindingResult result) {
 		
@@ -108,7 +108,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@Secured("ROLE_ADMIN")
 	@PutMapping("/solicitudCompraDetalle/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody CompraSolicitudCompraDetalle solicitudCompraDetalle, BindingResult result, @PathVariable Long id) {
 		
@@ -156,7 +156,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 		
 	}
 	
-	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@Secured("ROLE_ADMIN")
 	@DeleteMapping("/solicitudCompraDetalle/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		
@@ -175,11 +175,11 @@ public class CompraSolicitudCompraDetalleRestConroller {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
 	
-	/*@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/solicitudCompraDetalle/compraElemto")
 	public List<CompraElemento> listarCompraElemento() {
 		return compraSolicitudCompraDetalleService.findAllCompraElemento();
-	}*/
+	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
 	@GetMapping("/solicitudCompraDetalle/compraSolicitud")
