@@ -27,11 +27,11 @@ public class CompraSolicitudCompraHistoria implements Serializable {
 	@Column(name = "id_solicitud_hist_estado")
 	private Long id;
 	
-	/*@NotNull
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_solicitud")
+	@JoinColumn(name = "id_solicitud_compra")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private ;*/
+	private CompraSolicitudCompra comp_solicitudes_compra;
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -54,6 +54,14 @@ public class CompraSolicitudCompraHistoria implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public CompraSolicitudCompra getComp_solicitudes_compra() {
+		return comp_solicitudes_compra;
+	}
+
+	public void setComp_solicitudes_compra(CompraSolicitudCompra comp_solicitudes_compra) {
+		this.comp_solicitudes_compra = comp_solicitudes_compra;
 	}
 
 	public CompraEstado getComp_estados() {
