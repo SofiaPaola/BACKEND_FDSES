@@ -14,39 +14,48 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/clientes", "/api/clientes/page/**","/api/proveedores", "/api/proveedores/page/**", "/api/vendedores", "/api/vendedores/page/**", "/api/uploads/arch/**", "/api/proveedores/upload").permitAll()
-		/*.antMatchers("/api/clientes/{id}").permitAll()
-		.antMatchers("/api/facturas/**").permitAll()
-		.antMatchers(HttpMethod.GET, "/api/clientes/{id}").hasAnyRole("CLIENTE", "ADMIN")
-		.antMatchers(HttpMethod.POST, "/api/clientes").hasRole("ADMIN")
-		.antMatchers("/api/clientes/**").hasRole("ADMIN")
-		.anyRequest().authenticated();*/
-		.and().cors().configurationSource(corsConfigurationSource());
+		http.authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/api/clientes", "/api/clientes/page/**", "/api/proveedores",
+						"/api/proveedores/page/**", "/api/vendedores", "/api/vendedores/page/**",
+						"/api/uploads/arch/**", "/api/proveedores/upload",
+						"/api/solicitudCompraDetalle", "/api/solicitudCompraDetalle/page/")
+				.permitAll()
+				/*
+				 * .antMatchers("/api/clientes/{id}").permitAll()
+				 * .antMatchers("/api/facturas/**").permitAll() .antMatchers(HttpMethod.GET,
+				 * "/api/clientes/{id}").hasAnyRole("CLIENTE", "ADMIN")
+				 * .antMatchers(HttpMethod.POST, "/api/clientes").hasRole("ADMIN")
+				 * .antMatchers("/api/clientes/**").hasRole("ADMIN")
+				 * .anyRequest().authenticated();
+				 */
+				.and().cors().configurationSource(corsConfigurationSource());
 	}
-	
+
 	@Bean
 	public CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOriginPatterns(Arrays.asList("*"));
 		configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-		configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "OPTIONS"));
+		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		configuration.setAllowCredentials(true);
 		configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
-		
+
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
 	}
-	
+
 	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter(){
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
+	public FilterRegistrationBean<CorsFilter> corsFilter() {
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(
+				new CorsFilter(corsConfigurationSource()));
 		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
 	}

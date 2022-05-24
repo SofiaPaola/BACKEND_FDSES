@@ -54,11 +54,11 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_necesidad;
 	
-	/*@NotNull
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private ;*/
+	private CentroCosto centros_costo;
 	
 	private String programado;
 	
@@ -138,6 +138,14 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 
 	public void setFecha_necesidad(Date fecha_necesidad) {
 		this.fecha_necesidad = fecha_necesidad;
+	}
+
+	public CentroCosto getCentros_costo() {
+		return centros_costo;
+	}
+
+	public void setCentros_costo(CentroCosto centros_costo) {
+		this.centros_costo = centros_costo;
 	}
 
 	public String getProgramado() {
