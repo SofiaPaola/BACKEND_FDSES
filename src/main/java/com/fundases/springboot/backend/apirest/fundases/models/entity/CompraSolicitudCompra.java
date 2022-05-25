@@ -24,7 +24,7 @@ public class CompraSolicitudCompra implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id_solicitudad_compra")
+	@Column(name = "id_solicitud_compra")
 	private Long id;
 	
 	@NotNull
