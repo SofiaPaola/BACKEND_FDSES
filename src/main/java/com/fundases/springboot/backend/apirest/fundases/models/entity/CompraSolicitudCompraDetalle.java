@@ -16,8 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "comp_solicitudes_compra_det")
 public class CompraSolicitudCompraDetalle implements Serializable {
@@ -38,7 +41,8 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JoinColumn(name = "id_solicitud_compra")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CompraSolicitudCompra comp_solicitudes_compra;
-	
+
+	@NotEmpty(message = "no puede ser vacio")
 	private String proveedor_sugerido;
 	
 	private String especificaciones_tecnicas;

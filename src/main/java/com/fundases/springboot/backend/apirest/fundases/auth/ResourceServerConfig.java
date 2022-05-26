@@ -24,9 +24,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers(HttpMethod.GET, "/api/clientes", "/api/clientes/page/**", "/api/proveedores",
 						"/api/proveedores/page/**", "/api/vendedores", "/api/vendedores/page/**",
-						"/api/uploads/arch/**", "/api/proveedores/upload",
-						"/api/solicitudCompraDetalle", "/api/solicitudCompraDetalle/page/",
-						"/api/solicitudCompra", "/api/solicitudCompra/page/")
+						"/api/uploads/arch/**", "/api/proveedores/upload", "/api/solicitudCompraDetalle",
+						"/api/solicitudCompraDetalle/page/**", "/api/solicitudCompra", "/api/solicitudCompra/page/**")
 				.permitAll()
 				/*
 				 * .antMatchers("/api/clientes/{id}").permitAll()
@@ -34,8 +33,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				 * "/api/clientes/{id}").hasAnyRole("CLIENTE", "ADMIN")
 				 * .antMatchers(HttpMethod.POST, "/api/clientes").hasRole("ADMIN")
 				 * .antMatchers("/api/clientes/**").hasRole("ADMIN")
-				 * .anyRequest().authenticated();
 				 */
+				.anyRequest().authenticated()
 				.and().cors().configurationSource(corsConfigurationSource());
 	}
 
