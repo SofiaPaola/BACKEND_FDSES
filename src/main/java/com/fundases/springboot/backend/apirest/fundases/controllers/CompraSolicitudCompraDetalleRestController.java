@@ -36,24 +36,24 @@ import com.fundases.springboot.backend.apirest.fundases.models.services.ICompraS
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
-public class CompraSolicitudCompraDetalleRestConroller {
+public class CompraSolicitudCompraDetalleRestController {
 
 	@Autowired
 	private ICompraSolicitudCompraDetalleService compraSolicitudCompraDetalleService;
 
-	@GetMapping("/solicitudCompraDetalle")
+	@GetMapping("/solicitudCompraDetalles")
 	public List<CompraSolicitudCompraDetalle> index() {
 		return compraSolicitudCompraDetalleService.findAll();
 	}
 
-	@GetMapping("/solicitudCompraDetalle/page/{page}")
+	@GetMapping("/solicitudCompraDetalles/page/{page}")
 	public Page<CompraSolicitudCompraDetalle> index(@PathVariable Integer page) {
 		Pageable pageable = PageRequest.of(page, 8);
 		return compraSolicitudCompraDetalleService.findAll(pageable);
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalle/{id}")
+	@GetMapping("/solicitudCompraDetalles/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
 		CompraSolicitudCompraDetalle solicitudCompraDetalle = null;
@@ -79,7 +79,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 	}
 
 	@Secured("ROLE_ADMIN")
-	@PostMapping("/solicitudCompraDetalle")
+	@PostMapping("/solicitudCompraDetalles")
 	public ResponseEntity<?> create(@Valid @RequestBody CompraSolicitudCompraDetalle solicitudCompraDetalle,
 			BindingResult result) {
 
@@ -110,7 +110,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 	}
 
 	@Secured("ROLE_ADMIN")
-	@PutMapping("/solicitudCompraDetalle/{id}")
+	@PutMapping("/solicitudCompraDetalles/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody CompraSolicitudCompraDetalle solicitudCompraDetalle,
 			BindingResult result, @PathVariable Long id) {
 
@@ -136,7 +136,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 		}
 
 		try {
-			//solicitudCompraDetalleActual.setComp_elementos(solicitudCompraDetalle.getComp_elementos());
+			solicitudCompraDetalleActual.setComp_elementos(solicitudCompraDetalle.getComp_elementos());
 			solicitudCompraDetalleActual
 					.setComp_solicitudes_compra(solicitudCompraDetalle.getComp_solicitudes_compra());
 			solicitudCompraDetalleActual.setProveedor_sugerido(solicitudCompraDetalle.getProveedor_sugerido());
@@ -164,7 +164,7 @@ public class CompraSolicitudCompraDetalleRestConroller {
 	}
 
 	@Secured("ROLE_ADMIN")
-	@DeleteMapping("/solicitudCompraDetalle/{id}")
+	@DeleteMapping("/solicitudCompraDetalles/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 
 		Map<String, Object> response = new HashMap<>();
@@ -183,25 +183,25 @@ public class CompraSolicitudCompraDetalleRestConroller {
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalle/compraElemento")
+	@GetMapping("/solicitudCompraDetalles/compraElemento")
 	public List<CompraElemento> listarCompraElemento() {
 		return compraSolicitudCompraDetalleService.findAllCompraElemento();
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalle/compraSolicitud")
+	@GetMapping("/solicitudCompraDetalles/compraSolicitud")
 	public List<CompraSolicitudCompra> listarSolictudCompra() {
 		return compraSolicitudCompraDetalleService.findAllCompraSolicitudCompra();
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalle/compraEstado")
+	@GetMapping("/solicitudCompraDetalles/compraEstado")
 	public List<CompraEstado> listarEstado() {
 		return compraSolicitudCompraDetalleService.findAllCompraEstado();
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalle/unidad")
+	@GetMapping("/solicitudCompraDetalles/unidad")
 	public List<Unidad> listarUnidad() {
 		return compraSolicitudCompraDetalleService.findAllUnidad();
 	}

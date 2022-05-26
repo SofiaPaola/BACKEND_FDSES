@@ -24,8 +24,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers(HttpMethod.GET, "/api/clientes", "/api/clientes/page/**", "/api/proveedores",
 						"/api/proveedores/page/**", "/api/vendedores", "/api/vendedores/page/**",
-						"/api/uploads/arch/**", "/api/proveedores/upload", "/api/solicitudCompraDetalle",
-						"/api/solicitudCompraDetalle/page/**", "/api/solicitudCompra", "/api/solicitudCompra/page/**")
+						"/api/uploads/arch/**", "/api/proveedores/upload", "/api/solicitudCompraDetalles",
+						"/api/solicitudCompraDetalles/page/**", "/api/solicitudCompras", "/api/solicitudCompras/page/**")
 				.permitAll()
 				/*
 				 * .antMatchers("/api/clientes/{id}").permitAll()
