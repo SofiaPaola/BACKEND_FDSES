@@ -19,14 +19,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @SuppressWarnings("deprecation")
 @Entity
-@Table(name = "comp_elemenetos")
+@Table(name = "comp_elementos")
 public class CompraElemento implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id_elemento")
 	private Long id;
-	
 	
 	@NotEmpty(message = "no puede ser vacio")
 	private String codigo;
