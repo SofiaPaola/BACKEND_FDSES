@@ -132,7 +132,7 @@ public class CompraSolicitudCompraRestController {
 
 		try {
 
-			solicitudCompraActual.setUsuarios(solicitudCompra.getUsuarios());
+			//solicitudCompraActual.setUsuarios(solicitudCompra.getUsuarios());
 			solicitudCompraActual.setComp_estados(solicitudCompra.getComp_estados());
 			solicitudCompraActual.setFecha_registro(solicitudCompra.getFecha_registro());
 
