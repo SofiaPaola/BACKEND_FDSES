@@ -48,13 +48,13 @@ public class CompraOrdenCompraDetalle implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Unidad unidades;
 	
-	private String cantidad;
+	private Integer cantidad;
 	
-	private String valor_unit_sin_iva;
+	private Double valor_unit_sin_iva;
 	
-	private String iva;
+	private Double iva;
 	
-	private String valor_total_con_iva;
+	private Double valor_total_con_iva;
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -82,35 +82,35 @@ public class CompraOrdenCompraDetalle implements Serializable {
 		this.comp_ordenes_compra = comp_ordenes_compra;
 	}
 
-	public String getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(String cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public String getValor_unit_sin_iva() {
+	public Double getValor_unit_sin_iva() {
 		return valor_unit_sin_iva;
 	}
 
-	public void setValor_unit_sin_iva(String valor_unit_sin_iva) {
+	public void setValor_unit_sin_iva(Double valor_unit_sin_iva) {
 		this.valor_unit_sin_iva = valor_unit_sin_iva;
 	}
 
-	public String getIva() {
+	public Double getIva() {
 		return iva;
 	}
 
-	public void setIva(String iva) {
+	public void setIva(Double iva) {
 		this.iva = iva;
 	}
 
-	public String getValor_total_con_iva() {
+	public Double getValor_total_con_iva() {
 		return valor_total_con_iva;
 	}
 
-	public void setValor_total_con_iva(String valor_total_con_iva) {
+	public void setValor_total_con_iva(Double valor_total_con_iva) {
 		this.valor_total_con_iva = valor_total_con_iva;
 	}
 

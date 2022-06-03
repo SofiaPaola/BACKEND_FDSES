@@ -41,7 +41,7 @@ public class CompraCompraResibida implements Serializable {
 	
 	private String factura;
 	
-	private Float cantidad_recibida;
+	private Integer cantidad_recibida;
 	
 	private Long no_entrega;
 	
@@ -76,11 +76,11 @@ public class CompraCompraResibida implements Serializable {
 		this.factura = factura;
 	}
 
-	public Float getCantidad_recibida() {
+	public Integer getCantidad_recibida() {
 		return cantidad_recibida;
 	}
 
-	public void setCantidad_recibida(Float cantidad_recibida) {
+	public void setCantidad_recibida(Integer cantidad_recibida) {
 		this.cantidad_recibida = cantidad_recibida;
 	}
 

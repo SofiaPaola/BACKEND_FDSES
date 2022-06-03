@@ -53,7 +53,7 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CompraEstado comp_estados;
 	
-	private Float cantidad;
+	private Integer cantidad;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_necesidad;
@@ -128,11 +128,11 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 		this.unidades = unidades;
 	}
 
-	public Float getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(Float cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 

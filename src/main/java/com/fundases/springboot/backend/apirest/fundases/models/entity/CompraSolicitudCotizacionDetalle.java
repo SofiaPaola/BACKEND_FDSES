@@ -45,17 +45,17 @@ public class CompraSolicitudCotizacionDetalle implements Serializable {
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Unidad unidades;
 
-	private Float cantidad;
+	private Integer cantidad;
 
-	private Float valor_unitario_sin_iva;
+	private Double valor_unitario_sin_iva;
 
-	private Float descuento;
+	private Double descuento;
 
-	private Float iva;
+	private Double iva;
 
-	private Float valor_unitario_con_iva;
+	private Double valor_unitario_con_iva;
 
-	private Float valor_total_con_iva;
+	private Double valor_total_con_iva;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha_solicitud;
@@ -105,51 +105,51 @@ public class CompraSolicitudCotizacionDetalle implements Serializable {
 		this.comp_solicitud_compra_det = comp_solicitud_compra_det;
 	}
 
-	public Float getCantidad() {
+	public Integer getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(Float cantidad) {
+	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public Float getValor_unitario_sin_iva() {
+	public Double getValor_unitario_sin_iva() {
 		return valor_unitario_sin_iva;
 	}
 
-	public void setValor_unitario_sin_iva(Float valor_unitario_sin_iva) {
+	public void setValor_unitario_sin_iva(Double valor_unitario_sin_iva) {
 		this.valor_unitario_sin_iva = valor_unitario_sin_iva;
 	}
 
-	public Float getDescuento() {
+	public Double getDescuento() {
 		return descuento;
 	}
 
-	public void setDescuento(Float descuento) {
+	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
 
-	public Float getIva() {
+	public Double getIva() {
 		return iva;
 	}
 
-	public void setIva(Float iva) {
+	public void setIva(Double iva) {
 		this.iva = iva;
 	}
 
-	public Float getValor_unitario_con_iva() {
+	public Double getValor_unitario_con_iva() {
 		return valor_unitario_con_iva;
 	}
 
-	public void setValor_unitario_con_iva(Float valor_unitario_con_iva) {
+	public void setValor_unitario_con_iva(Double valor_unitario_con_iva) {
 		this.valor_unitario_con_iva = valor_unitario_con_iva;
 	}
 
-	public Float getValor_total_con_iva() {
+	public Double getValor_total_con_iva() {
 		return valor_total_con_iva;
 	}
 
-	public void setValor_total_con_iva(Float valor_total_con_iva) {
+	public void setValor_total_con_iva(Double valor_total_con_iva) {
 		this.valor_total_con_iva = valor_total_con_iva;
 	}
 
