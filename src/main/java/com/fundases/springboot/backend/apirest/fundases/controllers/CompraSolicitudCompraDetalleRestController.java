@@ -104,8 +104,8 @@ public class CompraSolicitudCompraDetalleRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		response.put("mensaje", "El cliente ha sido creado con éxito!");
-		response.put("cliente", solicitudCompraDetalleNew);
+		response.put("mensaje", "El detalle de solicitud de compra ha sido creado con éxito!");
+		response.put("solicitudCompraDetalle", solicitudCompraDetalleNew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 
