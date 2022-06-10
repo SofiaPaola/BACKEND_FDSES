@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.CentroCosto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
@@ -23,12 +24,16 @@ public interface ICompraSolicitudCompraDetalleService {
 	
 	public void delete(Long id);
 	
-	public List<CompraElemento> findAllCompraElemento();
+	public List<CompraElemento> findAllCompraElementos();
+	
+	public List<CentroCosto> findAllCentroCostos();
 	
 	public List<CompraSolicitudCompra> findAllCompraSolicitudCompra();
 
 	public List<CompraEstado> findAllCompraEstado();
 	
 	public List<Unidad> findAllUnidad();
+	
+	public List<CompraElemento> findElementoByNombre(String term); 
 
 }

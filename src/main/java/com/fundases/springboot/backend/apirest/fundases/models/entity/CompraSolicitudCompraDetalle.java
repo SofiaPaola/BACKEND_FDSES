@@ -1,8 +1,11 @@
 package com.fundases.springboot.backend.apirest.fundases.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,10 +14,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -64,6 +69,8 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CentroCosto centros_costo;
 	
+	@NotEmpty(message = "no puede estar vacio")
+	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String programado;
 	
 	@NotNull
@@ -71,6 +78,15 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@JoinColumn(name = "id_unidad_medida")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Unidad unidades;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_item_elemento")
+	private List<CompraElementoItem> items;
+
+	public CompraSolicitudCompraDetalle() {
+		items = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;
@@ -158,6 +174,14 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 
 	public void setProgramado(String programado) {
 		this.programado = programado;
+	}
+	
+	public List<CompraElementoItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<CompraElementoItem> items) {
+		this.items = items;
 	}
 
 	private static final long serialVersionUID = 1L;

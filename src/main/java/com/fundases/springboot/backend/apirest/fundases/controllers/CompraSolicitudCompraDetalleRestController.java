@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.CentroCosto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
@@ -136,7 +138,7 @@ public class CompraSolicitudCompraDetalleRestController {
 		}
 
 		try {
-			solicitudCompraDetalleActual.setComp_elementos(solicitudCompraDetalle.getComp_elementos());
+			//solicitudCompraDetalleActual.setComp_elementos(solicitudCompraDetalle.getComp_elementos());
 			solicitudCompraDetalleActual
 					.setComp_solicitudes_compra(solicitudCompraDetalle.getComp_solicitudes_compra());
 			solicitudCompraDetalleActual.setProveedor_sugerido(solicitudCompraDetalle.getProveedor_sugerido());
@@ -183,13 +185,7 @@ public class CompraSolicitudCompraDetalleRestController {
 	}
 
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalles/compraElemento")
-	public List<CompraElemento> listarCompraElemento() {
-		return compraSolicitudCompraDetalleService.findAllCompraElemento();
-	}
-
-	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
-	@GetMapping("/solicitudCompraDetalles/compraSolicitud")
+	@GetMapping("/solicitudCompraDetalles/solicitud")
 	public List<CompraSolicitudCompra> listarSolictudCompra() {
 		return compraSolicitudCompraDetalleService.findAllCompraSolicitudCompra();
 	}
@@ -205,5 +201,26 @@ public class CompraSolicitudCompraDetalleRestController {
 	public List<Unidad> listarUnidad() {
 		return compraSolicitudCompraDetalleService.findAllUnidad();
 	}
+	
+	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
+	@GetMapping("/solicitudCompraDetalles/elemento")
+	public List<CompraElemento> listarElemento() {
+		return compraSolicitudCompraDetalleService.findAllCompraElementos();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/solicitudCompraDetalles/filtrar-elemento/{term}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<CompraElemento> filtrarElementos(@PathVariable String term) {
+		return compraSolicitudCompraDetalleService.findElementoByNombre(term);
+	}
+	
+	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
+	@GetMapping("/solicitudCompraDetalles/costos")
+	public List<CentroCosto> listarCentroCostos() {
+		return compraSolicitudCompraDetalleService.findAllCentroCostos();
+	}
+	
+	
 
 }

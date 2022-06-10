@@ -8,7 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fundases.springboot.backend.apirest.fundases.models.dao.ICompraElementoDao;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.ICompraSolicitudCompraDetalleDao;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.CentroCosto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
@@ -20,6 +22,9 @@ public class CompraSolicitudCompraDetalleServiceImpl implements ICompraSolicitud
 
 	@Autowired
 	private ICompraSolicitudCompraDetalleDao compraSolicitudCompraDetalleDao;
+	
+	@Autowired
+	private ICompraElementoDao compraElementoDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -53,8 +58,8 @@ public class CompraSolicitudCompraDetalleServiceImpl implements ICompraSolicitud
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<CompraElemento> findAllCompraElemento() {
-		return compraSolicitudCompraDetalleDao.findAllCompraElemento();
+	public List<CompraElemento> findAllCompraElementos() {
+		return compraSolicitudCompraDetalleDao.findAllCompraElementos();
 	}
 
 	@Override
@@ -73,6 +78,18 @@ public class CompraSolicitudCompraDetalleServiceImpl implements ICompraSolicitud
 	@Transactional(readOnly = true)
 	public List<Unidad> findAllUnidad() {
 		return compraSolicitudCompraDetalleDao.findAllUnidad();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<CompraElemento> findElementoByNombre(String term) {
+		return compraElementoDao.findByNombreContainingIgnoreCase(term);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<CentroCosto> findAllCentroCostos() {
+		return compraSolicitudCompraDetalleDao.findAllCentroCosto();
 	}
 
 }

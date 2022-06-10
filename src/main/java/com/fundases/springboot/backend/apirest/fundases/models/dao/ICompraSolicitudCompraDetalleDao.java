@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.fundases.springboot.backend.apirest.fundases.models.entity.CentroCosto;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraElemento;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
@@ -14,7 +15,7 @@ import com.fundases.springboot.backend.apirest.fundases.models.entity.Unidad;
 public interface ICompraSolicitudCompraDetalleDao extends JpaRepository<CompraSolicitudCompraDetalle, Long> {
 
 	@Query("from CompraElemento")
-	public List<CompraElemento> findAllCompraElemento();
+	public List<CompraElemento> findAllCompraElementos();
 	
 	@Query("from CompraSolicitudCompra")
 	public List<CompraSolicitudCompra> findAllCompraSolicitudCompra();
@@ -24,5 +25,8 @@ public interface ICompraSolicitudCompraDetalleDao extends JpaRepository<CompraSo
 	
 	@Query("from Unidad")
 	public List<Unidad> findAllUnidad();
+	
+	@Query("from CentroCosto")
+	public List<CentroCosto> findAllCentroCosto();
 	
 }
