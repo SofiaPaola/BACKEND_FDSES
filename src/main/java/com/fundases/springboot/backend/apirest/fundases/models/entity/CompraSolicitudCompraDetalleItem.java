@@ -15,30 +15,40 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "comp_elementos_item")
-public class CompraElementoItem implements Serializable {
-	
+@Table(name = "comp_solicitudes_compra_det_item")
+public class CompraSolicitudCompraDetalleItem implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_item_elemento")
+	@Column(name = "id_item_solicitud_detalle")
 	private Long id;
-	
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
+	private Integer cantidad;
+
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_elemento")
 	private CompraElemento comp_elementos;
 	
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_solicitud_detalle")
 	private CompraSolicitudCompraDetalle comp_solicitudes_compra_det;
-	
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	public CompraElemento getComp_elementos() {

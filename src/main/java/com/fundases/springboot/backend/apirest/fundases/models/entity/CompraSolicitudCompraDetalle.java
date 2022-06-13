@@ -35,13 +35,13 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@Column(name = "id_solicitud_detalle")
 	private Long id;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_elemento")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private CompraElemento comp_elementos;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_solicitud_compra")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -52,7 +52,7 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	
 	private String especificaciones_tecnicas;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_estado")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -63,7 +63,7 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_necesidad;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_centro_costo")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -73,16 +73,17 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
 	private String programado;
 	
-	@NotNull
+	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_unidad_medida")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Unidad unidades;
 	
+	//@NotNull
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_item_elemento")
-	private List<CompraElementoItem> items;
+	@JoinColumn(name = "id_item_solicitud_detalle")
+	private List<CompraSolicitudCompraDetalleItem> items;
 
 	public CompraSolicitudCompraDetalle() {
 		items = new ArrayList<>();
@@ -175,12 +176,12 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	public void setProgramado(String programado) {
 		this.programado = programado;
 	}
-	
-	public List<CompraElementoItem> getItems() {
+
+	public List<CompraSolicitudCompraDetalleItem> getItems() {
 		return items;
 	}
 
-	public void setItems(List<CompraElementoItem> items) {
+	public void setItems(List<CompraSolicitudCompraDetalleItem> items) {
 		this.items = items;
 	}
 
