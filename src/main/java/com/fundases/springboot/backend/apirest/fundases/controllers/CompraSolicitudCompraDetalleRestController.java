@@ -138,13 +138,11 @@ public class CompraSolicitudCompraDetalleRestController {
 		}
 
 		try {
-			//solicitudCompraDetalleActual.setComp_elementos(solicitudCompraDetalle.getComp_elementos());
-			solicitudCompraDetalleActual
-					.setComp_solicitudes_compra(solicitudCompraDetalle.getComp_solicitudes_compra());
+			solicitudCompraDetalleActual.setElementos(solicitudCompraDetalle.getElementos());
 			solicitudCompraDetalleActual.setProveedor_sugerido(solicitudCompraDetalle.getProveedor_sugerido());
 			solicitudCompraDetalleActual
 					.setEspecificaciones_tecnicas(solicitudCompraDetalle.getEspecificaciones_tecnicas());
-			solicitudCompraDetalleActual.setComp_estados(solicitudCompraDetalle.getComp_estados());
+			solicitudCompraDetalleActual.setEstados(solicitudCompraDetalle.getEstados());
 			solicitudCompraDetalleActual.setCantidad(solicitudCompraDetalle.getCantidad());
 			solicitudCompraDetalleActual.setFecha_necesidad(solicitudCompraDetalle.getFecha_necesidad());
 			solicitudCompraDetalleActual.setCentros_costo(solicitudCompraDetalle.getCentros_costo());

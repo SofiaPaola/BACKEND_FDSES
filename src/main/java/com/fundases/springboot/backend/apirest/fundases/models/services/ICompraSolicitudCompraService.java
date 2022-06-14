@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Usuario;
 
 public interface ICompraSolicitudCompraService {
 	
@@ -21,5 +22,7 @@ public interface ICompraSolicitudCompraService {
 	public void delete(Long id);
 	
 	public List<CompraEstado> findAllCompraEstado();
+	
+	public List<Usuario> findAllUsuario();
 
 }

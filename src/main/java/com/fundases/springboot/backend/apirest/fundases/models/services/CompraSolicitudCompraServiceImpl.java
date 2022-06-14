@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fundases.springboot.backend.apirest.fundases.models.dao.ICompraSolicitudCompraDao;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Usuario;
 
 @Service
 public class CompraSolicitudCompraServiceImpl implements ICompraSolicitudCompraService {
@@ -52,5 +53,11 @@ public class CompraSolicitudCompraServiceImpl implements ICompraSolicitudCompraS
 	@Transactional(readOnly = true)
 	public List<CompraEstado> findAllCompraEstado() {
 		return compraSolicitudCompraDao.findAllCompraEstado();
-	}	
+	}
+
+	@Override
+	public List<Usuario> findAllUsuario() {
+		return compraSolicitudCompraDao.findAllUsuario();
+	}
+	
 }

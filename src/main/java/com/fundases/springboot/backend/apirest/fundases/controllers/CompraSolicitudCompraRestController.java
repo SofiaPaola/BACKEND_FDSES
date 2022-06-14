@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraEstado;
 import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSolicitudCompra;
+import com.fundases.springboot.backend.apirest.fundases.models.entity.Usuario;
 import com.fundases.springboot.backend.apirest.fundases.models.services.ICompraSolicitudCompraService;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -132,8 +133,8 @@ public class CompraSolicitudCompraRestController {
 
 		try {
 
-			//solicitudCompraActual.setUsuarios(solicitudCompra.getUsuarios());
-			solicitudCompraActual.setComp_estados(solicitudCompra.getComp_estados());
+			solicitudCompraActual.setUsuario(solicitudCompra.getUsuario());
+			solicitudCompraActual.setEstados(solicitudCompra.getEstados());
 			solicitudCompraActual.setFecha_registro(solicitudCompra.getFecha_registro());
 
 			solicitudCompraUpdated = solicitudCompraService.save(solicitudCompraActual);
@@ -174,6 +175,12 @@ public class CompraSolicitudCompraRestController {
 	@GetMapping("/solicitudCompra/compraEstado")
 	public List<CompraEstado> listarEstado() {
 		return solicitudCompraService.findAllCompraEstado();
+	}
+	
+	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+	@GetMapping("/solicitudCompra/usuario")
+	public List<Usuario> listarUsuario() {
+		return solicitudCompraService.findAllUsuario();
 	}
 	
 }

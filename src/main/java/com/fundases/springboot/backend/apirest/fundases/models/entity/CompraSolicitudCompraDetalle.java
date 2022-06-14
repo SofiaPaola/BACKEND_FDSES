@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -39,13 +39,13 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_elemento")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private CompraElemento comp_elementos;
+	private CompraElemento elementos;
 	
 	//@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_solicitud_compra")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private CompraSolicitudCompra comp_solicitudes_compra;
+	private CompraSolicitudCompra solicitudes;
 
 	@NotEmpty(message = "no puede ser vacio")
 	private String proveedor_sugerido;
@@ -56,7 +56,7 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_estado")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private CompraEstado comp_estados;
+	private CompraEstado estados;
 	
 	private Integer cantidad;
 	
@@ -97,20 +97,20 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 		this.id = id;
 	}
 
-	public CompraElemento getComp_elementos() {
-		return comp_elementos;
+	public CompraElemento getElementos() {
+		return elementos;
 	}
 
-	public void setComp_elementos(CompraElemento comp_elementos) {
-		this.comp_elementos = comp_elementos;
+	public void setElementos(CompraElemento elementos) {
+		this.elementos = elementos;
 	}
 
-	public CompraSolicitudCompra getComp_solicitudes_compra() {
-		return comp_solicitudes_compra;
+	public CompraSolicitudCompra getSolicitudes() {
+		return solicitudes;
 	}
 
-	public void setComp_solicitudes_compra(CompraSolicitudCompra comp_solicitudes_compra) {
-		this.comp_solicitudes_compra = comp_solicitudes_compra;
+	public void setSolicitudes(CompraSolicitudCompra solicitudes) {
+		this.solicitudes = solicitudes;
 	}
 
 	public String getProveedor_sugerido() {
@@ -128,15 +128,15 @@ public class CompraSolicitudCompraDetalle implements Serializable {
 	public void setEspecificaciones_tecnicas(String especificaciones_tecnicas) {
 		this.especificaciones_tecnicas = especificaciones_tecnicas;
 	}
-
-	public CompraEstado getComp_estados() {
-		return comp_estados;
-	}
-
-	public void setComp_estados(CompraEstado comp_estados) {
-		this.comp_estados = comp_estados;
-	}
 	
+	public CompraEstado getEstados() {
+		return estados;
+	}
+
+	public void setEstados(CompraEstado estados) {
+		this.estados = estados;
+	}
+
 	public Unidad getUnidades() {
 		return unidades;
 	}

@@ -27,17 +27,17 @@ public class CompraSolicitudCompra implements Serializable {
 	@Column(name = "id_solicitud_compra")
 	private Long id;
 	
-	/*@NotNull
+	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Usuario usuarios;*/
+	private Usuario usuario;
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_estado")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private CompraEstado comp_estados;
+	private CompraEstado estados;
 
 	@Temporal(TemporalType.DATE)
 	private Date fecha_registro;
@@ -50,20 +50,20 @@ public class CompraSolicitudCompra implements Serializable {
 		this.id = id;
 	}
 
-	/*public Usuario getUsuarios() {
-		return usuarios;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuarios(Usuario usuarios) {
-		this.usuarios = usuarios;
-	}*/
-
-	public CompraEstado getComp_estados() {
-		return comp_estados;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public void setComp_estados(CompraEstado comp_estados) {
-		this.comp_estados = comp_estados;
+	public CompraEstado getEstados() {
+		return estados;
+	}
+
+	public void setEstados(CompraEstado estados) {
+		this.estados = estados;
 	}
 
 	public Date getFecha_registro() {
