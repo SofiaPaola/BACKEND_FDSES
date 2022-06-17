@@ -38,6 +38,12 @@ public class CompraSolicitudCotizacionDetalle implements Serializable {
 	@JoinColumn(name = "id_solicitud_detalle")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private CompraSolicitudCompraDetalle comp_solicitud_compra_det;
+	
+	@NotNull
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_elemento")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private CompraElemento CompraElementos;
 
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
