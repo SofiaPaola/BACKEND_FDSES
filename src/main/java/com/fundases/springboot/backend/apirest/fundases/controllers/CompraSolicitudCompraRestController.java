@@ -133,7 +133,7 @@ public class CompraSolicitudCompraRestController {
 
 		try {
 
-			solicitudCompraActual.setUsuario(solicitudCompra.getUsuario());
+			solicitudCompraActual.setUsuarios(solicitudCompra.getUsuarios());
 			solicitudCompraActual.setEstados(solicitudCompra.getEstados());
 			solicitudCompraActual.setFecha_registro(solicitudCompra.getFecha_registro());
 
@@ -145,7 +145,7 @@ public class CompraSolicitudCompraRestController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
-		response.put("mensaje", "La solicitud d4e compra ha sido actualizada con exito");
+		response.put("mensaje", "La solicitud de compra ha sido actualizada con exito");
 		response.put("solicitudCompra", solicitudCompraUpdated);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);

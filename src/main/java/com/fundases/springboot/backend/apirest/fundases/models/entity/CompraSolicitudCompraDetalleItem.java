@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "comp_solicitudes_compra_det_item")
+@Table(name = "comp_solicitudes_compra_det_items")
 public class CompraSolicitudCompraDetalleItem implements Serializable {
 
 	@Id

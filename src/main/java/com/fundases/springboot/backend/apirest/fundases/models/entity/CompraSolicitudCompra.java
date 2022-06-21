@@ -31,7 +31,7 @@ public class CompraSolicitudCompra implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	private Usuario usuario;
+	private Usuario usuarios;
 	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -50,12 +50,12 @@ public class CompraSolicitudCompra implements Serializable {
 		this.id = id;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Usuario getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuario usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public CompraEstado getEstados() {

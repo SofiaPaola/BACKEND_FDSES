@@ -35,7 +35,7 @@ import com.fundases.springboot.backend.apirest.fundases.models.entity.CompraSoli
 import com.fundases.springboot.backend.apirest.fundases.models.entity.Unidad;
 import com.fundases.springboot.backend.apirest.fundases.models.services.ICompraSolicitudCompraDetalleService;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/api")
 public class CompraSolicitudCompraDetalleRestController {
@@ -199,26 +199,24 @@ public class CompraSolicitudCompraDetalleRestController {
 	public List<Unidad> listarUnidad() {
 		return compraSolicitudCompraDetalleService.findAllUnidad();
 	}
-	
+
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
 	@GetMapping("/solicitudCompraDetalles/elemento")
 	public List<CompraElemento> listarElemento() {
 		return compraSolicitudCompraDetalleService.findAllCompraElementos();
 	}
-	
-	@Secured({"ROLE_ADMIN", "ROLE_CLIENTE"})
+
+	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
 	@GetMapping("/solicitudCompraDetalles/filtrar-elemento/{term}")
 	@ResponseStatus(HttpStatus.OK)
 	public List<CompraElemento> filtrarElementos(@PathVariable String term) {
 		return compraSolicitudCompraDetalleService.findElementoByNombre(term);
 	}
-	
+
 	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
 	@GetMapping("/solicitudCompraDetalles/costos")
 	public List<CentroCosto> listarCentroCostos() {
 		return compraSolicitudCompraDetalleService.findAllCentroCostos();
 	}
-	
-	
 
 }

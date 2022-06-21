@@ -79,7 +79,7 @@ public class Proveedor implements Serializable{
 	private TipoDocumento tipo_documento;
 	
 	//@NotEmpty(message = "no puede estar vacio")
-	private Long activo;
+	private String activo;
 	
 	@NotEmpty(message = "no puede estar vacio")
 	@Size(min = 2, max = 2, message = "la respuesta tiene que ser SI o NO")
@@ -127,11 +127,11 @@ public class Proveedor implements Serializable{
 		return documento;
 	}
 
-	public Long getActivo() {
+	public String getActivo() {
 		return activo;
 	}
 
-	public void setActivo(Long activo) {
+	public void setActivo(String activo) {
 		this.activo = activo;
 	}
 
