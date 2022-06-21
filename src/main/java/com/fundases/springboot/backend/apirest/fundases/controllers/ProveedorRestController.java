@@ -62,7 +62,7 @@ public class ProveedorRestController {
 		return proveedorService.findAll(pageable);
 	}
 
-	@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
+	//@Secured({ "ROLE_ADMIN", "ROLE_CLIENTE" })
 	@GetMapping("/proveedores/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 

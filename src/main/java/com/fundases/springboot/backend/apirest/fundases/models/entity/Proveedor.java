@@ -1,8 +1,11 @@
 package com.fundases.springboot.backend.apirest.fundases.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,6 +43,15 @@ public class Proveedor implements Serializable{
 	@Size(min = 4, max = 150, message = "debe tener un  tamaño entre 4 y 150 caracteres")
 	@Column(nullable = false)
 	private String nombre;
+		
+	@NotEmpty(message = "no puede estar vacio")
+	private String direccion;
+	
+	@NotEmpty(message = "no puede estar vacio")
+	private String telefono;
+
+	@NotEmpty(message = "no puede estar vacio")
+	private String celular;
 	
 	@NotEmpty(message = "no puede estar vacio")
 	//@Column(nullable = false)
@@ -47,20 +60,15 @@ public class Proveedor implements Serializable{
 	@NotEmpty(message = "no puede estar vacio")
 	//@Column(nullable = false)
 	private String cargo;
-	
-	@NotEmpty(message = "no puede estar vacio")
-	private String telefono;
-	
-	@NotEmpty(message = "no puede estar vacio")
-	private String celular;
+
 	
 	@NotEmpty(message = "no puede estar vacio")
 	//@Email(message = "no es una dirección de correo bien formada")
 	@Column(nullable = false, unique = false)
 	private String email;
 	
-	@NotEmpty(message = "no puede estar vacio")
-	private String direccion;
+
+
 
 	@NotNull(message = "La fecha No puede estar vacia")
 	@Temporal(TemporalType.DATE)
@@ -106,6 +114,18 @@ public class Proveedor implements Serializable{
 	private String observaciones;
 	
 	private Long id_forma_pago;
+	
+	//----------------------------------------------------------------
+	
+    @JsonIgnoreProperties(value= {"proveedor", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="proveedor",cascade=CascadeType.ALL)
+	private List<CompraSolicitudCotizacion>comprasolicitudcotizacion;
+	
+	public Proveedor() {
+      this.comprasolicitudcotizacion = new ArrayList<>();
+	}
+	
+	//----------------------------------------------------------------
 
 	public Long getId() {
 		return id;
@@ -274,6 +294,14 @@ public class Proveedor implements Serializable{
 	public void setId_forma_pago(Long id_forma_pago) {
 		this.id_forma_pago = id_forma_pago;
 	}
+	
+	
+   //----------------------------------------------------------------
+
+
+	//----------------------------------------------------------------
+
+
 
 	private static final long serialVersionUID = 1L;
 	
